@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{aboutdetails.title}}
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>{{aboutdetails.title}}</h1>
+    <span>{{aboutdetails.text|safe}}</span>
+</div>
+{% endblock content %}

@@ -1,0 +1,159 @@
+@font-face {
+    font-family: 'RussoOne';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/RussoOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Comfortaa-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 1em;
+}
+
+.form-control {
+    border-radius: 0%;
+    border: 1px solid #fff;
+}
+
+.btn {
+    border-radius: 0%;
+}
+
+/********** HEADER **********/
+
+header .top-header {
+    padding: 5px 20px;
+}
+
+header .navbar-brand {
+    text-transform: uppercase;
+    font-size: 1.5em;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+    color:#01C5A2;
+}
+
+header .navbar-dark {
+    padding: 25px 20px;
+}
+
+header .navbar-nav {
+    font-size: 1em;
+}
+
+/********** FOOTER **********/
+
+footer {
+    background-color: #0063A0;
+}
+
+footer #contacts {
+    color: #fff;
+    font-size: 2.5em;
+    margin-bottom: 50px;
+    font-weight: bold;
+    margin-top: 75px;
+    padding-top: 50px;
+}
+
+footer .top-footer {
+    font-size: 1.4em;
+    box-shadow:0px 0px 10px 0px rgba(0,0,0,0.25);
+    -webkit-box-shadow:0px 0px 10px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 50px;
+    background-color: #fff;
+}
+
+footer .top-footer ul {
+    list-style-type: none;
+}
+
+footer .adresses {
+    padding: 30px;
+}
+
+footer .map {
+    padding: 0;
+}
+
+footer .adresses ul li {
+    position: relative;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+footer .adresses ul li i {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #0063A0;
+}
+
+footer .adresses ul li span {
+    display: block;
+    padding-left: 25px;
+}
+
+footer .bottom-footer {
+    background-color: #fff;
+    padding: 20px 0 0 0;
+}
+
+footer .bottom-footer .text-center:first-child {
+    font-size: 2em;
+}
+
+/********** INDEX **********/
+
+.jopa {
+    height: 1000px;
+}
+
+/********** VACANCY **********/
+
+.vacancy h3 {
+    font-size: 1.8em;
+}
+
+.vacancy span {
+    font-size: 1.3em;
+}
+
+.vacancy hr {
+    display: block;
+    border-style: solid;
+    border-color: black;
+    border-width: 0 0 2px 0;
+}
+
+.vacancyinfo:last-child hr {
+    display: none;
+}
+
+/********** rights_and_obligations **********/
+
+.laws h1 {
+    font-size: 2.5em;
+    padding-bottom: 40px;
+}
+
+/********** supervisoryauthority **********/
+
+.supervisoryauthority h1 {
+    font-size: 2.5em;
+    padding-bottom: 40px;
+}

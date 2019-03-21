@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Права и обязанности граждан в сфере охраны здоровья
+{% endblock title %}
+
+{% block content %}
+<div class="container laws">
+    <h1>Права и обязанности граждан в сфере охраны здоровья</h1>
+    <span>{{rights_and_obligations.text|safe}}</span>
+</div>
+{% endblock content %}
