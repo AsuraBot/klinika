@@ -29,7 +29,7 @@ body {
 /********** HEADER **********/
 
 header .top-header {
-    padding: 5px 20px;
+    padding: 10px 50px;
 }
 
 header .navbar-brand {
@@ -70,7 +70,6 @@ footer #contacts {
 }
 
 footer .top-footer {
-    font-size: 1.4em;
     box-shadow:0px 0px 10px 0px rgba(0,0,0,0.25);
     -webkit-box-shadow:0px 0px 10px 0px rgba(0,0,0,0.25);
     -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
@@ -93,6 +92,7 @@ footer .map {
 footer .adresses ul li {
     position: relative;
     font-weight: bold;
+    font-size: 1.2em;
     margin-top: 20px;
 }
 
@@ -125,8 +125,13 @@ footer .bottom-footer .text-center:first-child {
 
 /********** VACANCY **********/
 
+.vacancy {
+    padding-top: 75px;
+}
+
 .vacancy h3 {
     font-size: 1.8em;
+    padding-bottom: 20px;
 }
 
 .vacancy span {
@@ -156,4 +161,23 @@ footer .bottom-footer .text-center:first-child {
 .supervisoryauthority h1 {
     font-size: 2.5em;
     padding-bottom: 40px;
+}
+
+/********** SERVICES **********/
+
+.container .accordion {
+    padding-top: 75px;
+}
+
+.btn {
+    font-size: 1em;
+}
+
+.btn:hover {
+    color:rgb(6, 10, 252);
+    font-weight: bold;
+}
+
+.card-body {
+    font-size: 1.1em;
 }
