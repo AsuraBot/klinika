@@ -5,17 +5,8 @@
 {% endblock title %}
 
 {% block content %}
-{% comment %} <div class="container">
-    {% for servicemain in servicemains %}
-        {{servicemain.name}}
-        <br>
-        {% for service in servicemain.services.all %}
-            {{service.name}}
-        {% endfor %}
-    {% endfor %}
-</div> {% endcomment %}
 <div class="container">
-    <div class="accordion" id="accordionEx">
+    <div class="accordion" id="accordion">
         {% for servicemain in servicemains %}
             <div class="card">
                 <div class="card-header" id="heading-{{ servicemain.id }}">
@@ -25,7 +16,7 @@
                         </button>
                     </h5>
                 </div>              
-                <div id="collapse-{{ servicemain.id }}" class="collapse" aria-labelledby="heading-{{ servicemain.id }}" data-parent="#accordionEx"> 
+                <div id="collapse-{{ servicemain.id }}" class="collapse" aria-labelledby="heading-{{ servicemain.id }}" data-parent="#accordion"> 
                     <div class="card-body">
                         {% for service in servicemain.services.all %}
                             {{service.name}}
@@ -35,45 +26,5 @@
             </div>
         {% endfor %}
     </div>
-</div>
-
-  <div id="accordion">
-    <div class="card">
-      <div class="card-header">
-        <a class="card-link" data-toggle="collapse" href="#collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </div>
-      <div id="collapseOne" class="collapse show" data-parent="#accordion">
-        <div class="card-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-        Collapsible Group Item #2
-      </a>
-      </div>
-      <div id="collapseTwo" class="collapse" data-parent="#accordion">
-        <div class="card-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header">
-        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </div>
-      <div id="collapseThree" class="collapse" data-parent="#accordion">
-        <div class="card-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 {% endblock content %}
