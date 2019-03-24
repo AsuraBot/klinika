@@ -62,7 +62,9 @@ footer {
 
 footer #contacts {
     color: #fff;
-    font-size: 2.5em;
+    font-size: 2em;
+    text-transform: uppercase;
+    text-align: center;
     margin-bottom: 50px;
     font-weight: bold;
     margin-top: 75px;
@@ -165,19 +167,52 @@ footer .bottom-footer .text-center:first-child {
 
 /********** SERVICES **********/
 
-.container .accordion {
-    padding-top: 75px;
+.container #accordion {
+    margin-top: 75px;
+    border-top: 1px solid #0063A0;
 }
 
-.btn {
+h1 {
+    padding-top: 75px;
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#accordion .card {
+    border-radius: 0;
+    border: none;
+}
+
+#accordion .card .card-header {
+    background-color: white;
+    border-bottom: 1px solid #0063A0;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    box-sizing: border-box;
+}
+
+#accordion .card .list-group {
+    border-bottom: 1px solid #0063A0;
+}
+
+#accordion .btn {
     font-size: 1em;
 }
 
-.btn:hover {
-    color:rgb(6, 10, 252);
+#accordion .btn:hover {
+    color:#01C5A2;
     font-weight: bold;
 }
 
 .card-body {
     font-size: 1.1em;
+}
+
+#accordion .list-group a:hover,
+#accordion .list-group a:focus {
+    background-color: #0063A0;
+    color: #fff;
 }

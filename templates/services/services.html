@@ -6,7 +6,8 @@
 
 {% block content %}
 <div class="container">
-    <div class="accordion" id="accordion">
+    <h1>Услуги</h1>
+    <div id="accordion">
         {% for servicemain in servicemains %}
             <div class="card">
                 <div class="card-header" id="heading-{{ servicemain.id }}">
@@ -17,9 +18,12 @@
                     </h5>
                 </div>              
                 <div id="collapse-{{ servicemain.id }}" class="collapse" aria-labelledby="heading-{{ servicemain.id }}" data-parent="#accordion"> 
-                    <div class="card-body">
+                    <div class="list-group">
                         {% for service in servicemain.services.all %}
-                            {{service.name}}
+                            <a href="{{ service.get_absolute_url }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                {{service.name}}
+                                <b>{{service.price}}</b>
+                            </a>
                         {% endfor %}
                     </div>      
                 </div>

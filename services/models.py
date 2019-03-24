@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
+from django.urls import reverse
 from peoples.models import Doctor
 
 # Create your models here.
@@ -45,3 +46,6 @@ class Service(models.Model):
             self.ref_napr = self.service_main.ref_napr
             self.ref_agent = self.service_main.ref_agent
         super(Service,self).save(*args,**kwargs)
+
+    def get_absolute_url(self):
+        return reverse("service_detail", args=[self.id])

@@ -1,16 +1,19 @@
 from django.shortcuts import render
-from services.models import ServiceMain
+from services.models import Service, ServiceMain
 
 # Create your views here.
 
 def services(request):
+    servicemains = ServiceMain.objects.filter(is_active=True)
+
     context = {
+        'servicemains': servicemains,
     }
     return render(request, 'services/services.html', context)
 
 
 def service_detail(request, service_id):
-    service = ServiceMain.objects.get(id=int(about_id))
+    service = Service.objects.get(id=int(service_id))
 
     context = {
         'service': service,

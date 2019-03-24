@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.utils.html import format_html
-from peoples.models import Client, Doctor, Operator, MainOperator, Director
+from peoples.models import Client, Doctor, Operator, MainOperator, Director, DoctorMain
 
 
 # class PeopleInline(admin.TabularInline):
@@ -30,3 +30,4 @@ admin.site.register(Doctor)
 admin.site.register(Operator)
 admin.site.register(MainOperator)
 admin.site.register(Director)
+admin.site.register(DoctorMain)

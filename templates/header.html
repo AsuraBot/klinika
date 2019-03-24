@@ -1,11 +1,12 @@
 <header>
-    <div class="row top-header">
-        <div class="col-md-offset-1 col-md-5">г. Пятигорск, ул. Кузнечная 26</div>
-        <div class="col-md-7 text-right">
-            <span>+7 (928) 828 4001</span>
-            <a href="#">Записаться на приём</a>
+    <div class="top-header">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-5">г. Пятигорск, ул. Кузнечная 26</div>
+            <div class="col-md-7 text-right">
+                <span>+7 (928) 828 4001</span>
+                <a href="#">Записаться на приём</a>
+            </div>
         </div>
-        <div class="col-md-1"></div>
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0063A0;">
         <a class="navbar-brand" href="{% url 'index' %}">Поликлиника 4D</a>
@@ -14,7 +15,9 @@
         </button>
         <div class="collapse navbar-collapse  justify-content-end" id="navbarNav">
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Главная</a></li>           
+                <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Услуги</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'doctors' %}">Врачи</a></li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle">О клинике <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -26,40 +29,7 @@
                             </div>
                         </div>
                     </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a href="{% url 'services' %}" class="nav-link dropdown-toggle nav-link" role="button" aria-haspopup="true" aria-expanded="false">Услуги <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        {% for servicemain in servicemains %}
-                            <li><a href="#">{{servicemain.name}}</a></li>
-                        {% endfor %}
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#">УЗИ</a></li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Врачи <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Акушер-гинеколог</a></li>
-                        <li><a href="#">Андролог</a></li>
-                        <li><a href="#">Дерматолог</a></li>
-                        <li><a href="#">Маммолог</a></li>
-                        <li><a href="#">Проктолог</a></li>
-                        <li><a href="#">Флеболог</a></li>
-                        <li><a href="#">Аллерголог-иммунолог</a></li>
-                        <li><a href="#">Гастроэнтеролог</a></li>
-                        <li><a href="#">Инфекционист</a></li>
-                        <li><a href="#">Ортопед-травматолог</a></li>
-                        <li><a href="#">Невролог</a></li>
-                        <li><a href="#">Эндокринолог</a></li>
-                        <li><a href="#">Кардиолог-аритмолог</a></li>
-                        <li><a href="#">Гепатолог</a></li>
-                        <li><a href="#">ЛОР - Оториноларинголог</a></li>
-                        <li><a href="#">Педиатр-неонатолог</a></li>
-                        <li><a href="#">Уролог</a></li>
-                        <li><a href="#">Нефролог</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#">Цены</a></li>
+                </li>   
                 <li class="nav-item"><a class="nav-link" href="#">Новости</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'vacancys' %}">Вакансии</a></li>

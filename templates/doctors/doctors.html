@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Врачи
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h1>Врачи</h1>
+    <div id="accordion">
+        {% for doctormain in doctormains %}
+            <div class="card">
+                <div class="card-header" id="heading-{{ doctormain.id }}">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse-{{ doctormain.id }}" aria-expanded="false" aria-controls="collapse-{{ doctormain.id }}">
+                            {{doctormain.name}}
+                        </button>
+                    </h5>
+                </div>              
+                <div id="collapse-{{ doctormain.id }}" class="collapse" aria-labelledby="heading-{{ doctormain.id }}" data-parent="#accordion"> 
+                    <div class="list-group">
+                        {% for doctor in doctormain.doctors.all %}
+                            <a href="{{ doctor.get_absolute_url }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                {{doctor.name}}
+                            </a>
+                        {% endfor %}
+                    </div>      
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
