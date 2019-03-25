@@ -121,7 +121,7 @@ footer .bottom-footer .text-center:first-child {
 
 /********** INDEX **********/
 
-.jopa {
+.mainpage {
     height: 1000px;
 }
 
@@ -149,20 +149,6 @@ footer .bottom-footer .text-center:first-child {
 
 .vacancyinfo:last-child hr {
     display: none;
-}
-
-/********** rights_and_obligations **********/
-
-.laws h1 {
-    font-size: 2.5em;
-    padding-bottom: 40px;
-}
-
-/********** supervisoryauthority **********/
-
-.supervisoryauthority h1 {
-    font-size: 2.5em;
-    padding-bottom: 40px;
 }
 
 /********** SERVICES **********/
@@ -215,4 +201,14 @@ h1 {
 #accordion .list-group a:focus {
     background-color: #0063A0;
     color: #fff;
+}
+
+/********** NEWS **********/
+
+.news {
+    padding: 75px;
+}
+
+.newsinfo p {
+    padding: 25px;
 }

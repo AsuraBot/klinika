@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'discounts',
     'schedules',
     'vacancys',
-    'staticpages'
+    'staticpages',
+    'news',
 ]
 
 MIDDLEWARE = [

@@ -12,4 +12,5 @@ urlpatterns = [
     path('other/', include('staticpages.urls')),
     path('services/', include('services.urls')),
     path('doctors/', include('peoples.urls')),
+    path('news/', include('news.urls')),
     ]

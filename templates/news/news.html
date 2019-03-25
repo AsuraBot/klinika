@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container news">
+    {% for new in news %}
+        <div class="row newsinfo">
+            <div class="col-md-5">
+                Test
+            </div>
+            <div class="col-md-7">
+                <h3>{{new.title}}</h3>
+                <span>{{new.text|safe}}</span>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}
