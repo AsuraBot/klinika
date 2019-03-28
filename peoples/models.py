@@ -50,6 +50,13 @@ class Doctor(People):
     oklad = models.PositiveIntegerField(verbose_name='Оклад', default=0)
     information = HTMLField(verbose_name='Информация')
 
+    def get_picture_url(self, filename):
+        ext = filename.split('.')[-1]
+        filename = '%s.%s' % (self.user, ext)
+        return 'images/doctors/%s' % filename
+
+    image = models.ImageField(verbose_name='Фото', upload_to=get_picture_url, blank=True, null=True)
+
     class Meta:
         verbose_name = 'Врач'
         verbose_name_plural = 'Врачи'

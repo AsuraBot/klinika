@@ -205,10 +205,61 @@ h1 {
 
 /********** NEWS **********/
 
-.news {
-    padding: 75px;
+.news h1 {
+    margin-bottom: 75px;
 }
 
-.newsinfo p {
-    padding: 25px;
+.news .col-md-5 {
+    height: 300px;
+    padding: 0;
+}
+
+.news .col-md-7 {
+    position: relative;
+    padding: 15px 25px 15px 30px;
+}
+
+.newsinfo {
+    margin-bottom: 50px;
+    box-shadow:9px 10px 37px 1px rgba(0,0,0,0.11);
+    -webkit-box-shadow:9px 10px 37px 1px rgba(0,0,0,0.11);
+    -moz-box-shadow:9px 10px 37px 1px rgba(0,0,0,0.11);
+}
+
+.newsinfo .date {
+    padding-top: 10px;
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.newsinfo h3 {
+    padding: 0;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.newsinfo .newsimage {
+    background-size: cover;
+}
+
+.newsinfo .btn-primary {
+    background-color: #0063A0;
+}
+
+.newsinfo .desc {
+    margin-bottom: 20px;
+}
+
+/********** DOCTORS **********/
+
+.doctors .card-body .card {
+    margin-top:30px;
+    box-shadow:9px 10px 37px 1px rgba(0,0,0,0.11);
+    -webkit-box-shadow:9px 10px 37px 1px rgba(0,0,0,0.11);
+    -moz-box-shadow:9px 10px 37px 1px rgba(0,0,0,0.11);
+}
+
+.doctors .card-body .card a:hover,
+.doctors .card-body .card a:focus {
+    color: #01C5A2;
 }

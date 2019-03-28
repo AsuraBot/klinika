@@ -1,15 +1,22 @@
 {% extends 'base.html' %}
 
+{% block title %}
+    Новости
+{% endblock title %}
+
 {% block content %}
 <div class="container news">
+     <h1>Новости</h1>
     {% for new in news %}
         <div class="row newsinfo">
             <div class="col-md-5">
-                Test
+                <a href='{{ new.get_absolute_url }}' class='newsimage d-block h-100' style='background-image:url("{{new.image.url}}")'></a>
             </div>
             <div class="col-md-7">
+                <p class="date">{{new.date}}</p>
                 <h3>{{new.title}}</h3>
-                <span>{{new.text|safe}}</span>
+                <p class="desc">{{new.text|striptags|truncatechars:320}}</p>
+                <a href='{{ new.get_absolute_url }}' class='btn btn-primary'>Подробнее</a>
             </div>
         </div>
     {% endfor %}
