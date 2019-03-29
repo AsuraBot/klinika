@@ -121,19 +121,16 @@ footer .bottom-footer .text-center:first-child {
 
 /********** INDEX **********/
 
-.mainpage {
-    height: 1000px;
+.carousel {
+    margin-top: 75px;
 }
 
 /********** VACANCY **********/
 
-.vacancy {
-    padding-top: 75px;
-}
-
 .vacancy h3 {
     font-size: 1.8em;
     padding-bottom: 20px;
+    margin-top: 35px;
 }
 
 .vacancy span {
