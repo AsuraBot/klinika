@@ -121,8 +121,137 @@ footer .bottom-footer .text-center:first-child {
 
 /********** INDEX **********/
 
-.carousel {
-    margin-top: 75px;
+#index-carousel img {
+    width: 100%;
+    height: 500px;
+}
+
+.index-services {
+    padding: 60px 0;
+    background-color: #f4fefc;
+}
+
+.index-services .one-service {
+    margin-top: 50px;
+}
+
+.index-services .one-service a {
+    display: block;
+    position: relative;
+    margin: 0 10px;
+}
+
+.index-services .one-service img {
+    display: block;
+    width: 250px;
+    height: 250px;
+}
+
+.index-services .one-service a p {
+    position: absolute;
+    width: 100%;
+    bottom: 1em;
+    left: 0;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.index-services .one-service a p span {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 15px;
+    font-weight: bold;
+    color: #0063A0;    
+}
+
+.index-services .one-service a:hover p span,
+.index-services .one-service a:focus p span {
+    color:#01C5A2;
+}
+
+.index-services .btn {
+    display: block;
+    width: 150px;
+    margin: 50px auto;
+    background-color: #01C5A2;
+    border-color: #01C5A2; 
+}
+
+.index-services h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #0063A0; 
+}
+
+.index-services .btn:hover,
+.index-services .btn:focus {
+    background-color: #01C5A2;
+    border-color: #01C5A2;
+    opacity: 0.7;
+    outline: none;
+}
+
+.index-news {
+    padding: 60px 0;
+    background-color: #f4fefc;
+}
+
+.index-news .one-new {
+    margin-top: 50px;
+}
+
+.index-news .one-new a {
+    display: block;
+    position: relative;
+    margin: 0 10px;
+}
+
+.index-news .one-new img {
+    display: block;
+    width: 250px;
+    height: 250px;
+}
+
+.index-news .one-new a p {
+    position: absolute;
+    width: 100%;
+    bottom: 1em;
+    left: 0;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.index-news .one-new a p span {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 15px;
+    font-weight: bold;
+    color: #0063A0;    
+}
+
+.index-news .one-new a:hover p span,
+.index-news .one-new a:focus p span {
+    color:#01C5A2;
+}
+
+.index-news .btn {
+    display: block;
+    width: 150px;
+    margin: 50px auto;
+    background-color: #01C5A2;
+    border-color: #01C5A2; 
+}
+
+.index-news h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #0063A0; 
+}
+
+.index-news .btn:hover,
+.index-news .btn:focus {
+    background-color: #01C5A2;
+    border-color: #01C5A2;
+    opacity: 0.7;
+    outline: none;
 }
 
 /********** VACANCY **********/

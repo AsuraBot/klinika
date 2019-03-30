@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block title %}
-  Поликлиника УЗИ 4D
+  Поликлиника УЗИ 4Д
 {% endblock title %}
 
 {% block content %}
-  <div class="container carousel">
+  <div class="carousel" id="index-carousel">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -15,17 +15,17 @@
       </ol>
       <div class="carousel-inner">
           <div class="carousel-item active">
-            <a href='#'><img class="d-block" src="https://via.placeholder.com/980x276">
+            <a href='#'><img class="d-block" src="https://via.placeholder.com/2100x276">
               <div class="carousel-caption d-none d-md-block">
-                <h5>...</h5>
-                <p>...</p>
+                <h3>Текст 1</h3>
+                <p>шо то там</p>
               </div>
             </a>
           </div>
           <div class="carousel-item">
             <a href='#'><img class="d-block" src="{% static 'images/mainbg.png' %}">
               <div class="carousel-caption d-none d-md-block">
-                <h5>...</h5>
+                <h5>.L..</h5>
                 <p>...</p>
               </div>
             </a>
@@ -47,6 +47,41 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
+    </div>
+  </div>
+
+  <div class="index-services">
+    <div class="container">
+      <h2 class="text-center">Услуги</h2>
+      <p class="text-center pt-2">Лучшее УЗИ</p>
+      <div class="d-flex justify-content-around flex-wrap">
+        {% for service in popular_services %}
+          <div class="one-service">
+            <a href="#">
+              <img src="{% static 'images/mainbg.png' %}" alt="service_img">
+              <p><span>{{ service.name }}</span></p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+      <a href="{% url 'services' %}" class="btn btn-primary">Все услуги</a>
+    </div>
+  </div>
+
+  <div class="index-news">
+    <div class="container">
+      <h2 class="text-center">Новости</h2>
+      <div class="d-flex justify-content-around flex-wrap">
+        {% for new in last_news %}
+          <div class="one-new">
+            <a href="#">
+              <img src="{% static 'images/mainbg.png' %}" alt="service_img">
+              <p><span>{{ new.name }}</span></p>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+      <a href="{% url 'news' %}" class="btn btn-primary">Все новости</a>
     </div>
   </div>
 {% endblock content %}

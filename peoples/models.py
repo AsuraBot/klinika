@@ -45,7 +45,7 @@ class DoctorMain(models.Model):
 
 class Doctor(People):
     user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, verbose_name='Профиль', null=True, blank=True, related_name='doctors')
-    doctor_main = models.ForeignKey(DoctorMain,on_delete=models.CASCADE,verbose_name='Специальность',related_name='doctors')
+    doctor_main = models.ManyToManyField(DoctorMain,verbose_name='Специальность',related_name='doctors')
     ref_doc = models.PositiveSmallIntegerField(verbose_name='Процент специалиста', default=0, validators=[MaxValueValidator(100)])
     oklad = models.PositiveIntegerField(verbose_name='Оклад', default=0)
     information = HTMLField(verbose_name='Информация')
