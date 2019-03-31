@@ -389,3 +389,20 @@ h1 {
 .doctors .card-body .card a:focus {
     color: #01C5A2;
 }
+
+/********** BOOKNOW **********/
+
+.calendar h1 {
+    margin-bottom: 50px;
+}
+
+.calendar form input {
+    border: 1px solid #0063A0;
+    margin-bottom: 10px;
+}
+
+.calendar form select {
+    border: 1px solid #0063A0;
+    border-radius: 0;
+    margin-bottom: 10px;
+}

@@ -1,4 +1,5 @@
 from django.db import models
+from peoples.models import Doctor
 
 # Create your models here.
 
@@ -17,9 +18,10 @@ class WorkTime(models.Model):
 
 
 class WorkDate(models.Model):
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='workdates', verbose_name='Врач')
     date = models.DateField(verbose_name='Дата приёма')
-    is_work = models.BooleanField(default=False, verbose_name='Рабочий день')
     worktimes = models.ManyToManyField(WorkTime, verbose_name='Рабочие часы', related_name='workdates')
+    is_work = models.BooleanField(default=False, verbose_name='Рабочий день')
 
     class Meta:
         verbose_name = 'Дата приёма'
@@ -27,4 +29,4 @@ class WorkDate(models.Model):
         ordering = ['date']
 
     def __str__(self):
-        return '%s' % self.date
+        return '%s - %s' % (self.doctor, self.date)

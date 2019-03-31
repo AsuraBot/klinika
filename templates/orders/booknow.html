@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Записаться на приём
+{% endblock title %}
+
+{% block content %}
+<div class="calendar">
+    <div class="container">
+        <h1>Записаться на приём</h1>
+        <form action="">
+            <div class="row">
+                <div class="col-md-4">
+                    <select class="custom-select">
+                        <option selected>Выберите город</option>
+                        <option value="1">Пятигорск</option>
+                        <option value="2">Минеральные Воды</option>
+                        <option value="3">Ессентуки</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Укажите врача">
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" placeholder="Укажите услугу">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" id="datetimepicker">
+                </div>
+            </div>
+
+
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
