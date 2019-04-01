@@ -406,3 +406,13 @@ h1 {
     border-radius: 0;
     margin-bottom: 10px;
 }
+
+.breadcrumbmodify {
+    list-style-type: none;
+    padding: 0;
+}
+
+.breadcrumbmodify li {
+    text-align: center;
+    padding: 0 10px;
+}

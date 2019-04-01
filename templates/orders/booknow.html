@@ -9,44 +9,89 @@
     <div class="container">
         <h1>Записаться на приём</h1>
         <form action="">
-            <div class="row">
-                <div class="col-md-4">
-                    <select class="custom-select">
-                        <option selected>Выберите город</option>
-                        <option value="1">Пятигорск</option>
-                        <option value="2">Минеральные Воды</option>
-                        <option value="3">Ессентуки</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Укажите врача">
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" placeholder="Укажите услугу">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <input type="text" id="datetimepicker">
-                </div>
-            </div>
+            <nav class="d-none d-sm-none d-md-block">  <!-- Большой экран -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="service-tab" data-toggle="tab" href="#service" role="tab" aria-controls="service" aria-selected="true">Выберите услугу</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="doctor-tab" data-toggle="tab" href="#doctor" role="tab" aria-controls="doctor" aria-selected="false">Выберите врача</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="city-tab" data-toggle="tab" href="#city" role="tab" aria-controls="city" aria-selected="false">Выберите город</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="datetime-tab" data-toggle="tab" href="#datetime" role="tab" aria-controls="datetime" aria-selected="false">Выберите дату и время</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="enterinfo-tab" data-toggle="tab" href="#enterinfo" role="tab" aria-controls="enterinfo" aria-selected="false">Введите свои данные</a>
+                    </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="service" role="tabpanel" aria-labelledby="service-tab">
+                            <input type="text" class="form-control" placeholder="Выберите услугу">   
+                        </div>
+                        <div class="tab-pane fade" id="doctor" role="tabpanel" aria-labelledby="doctor-tab">
+                                <input type="text" class="form-control" placeholder="Выберите врача">
+                        </div>
+                        <div class="tab-pane fade" id="city" role="tabpanel" aria-labelledby="city-tab">
+                            <input type="text" class="form-control" placeholder="Выберите город">
+                        </div>
+                        <div class="tab-pane fade" id="datetime" role="tabpanel" aria-labelledby="datetime-tab">
+                                <input type="text" class="form-control" placeholder="Выберите дату и время">
+                        </div>
+                        <div class="tab-pane fade" id="enterinfo" role="tabpanel" aria-labelledby="enterinfo-tab">
+                                <input type="text" class="form-control" placeholder="Введите свои данные">
+                        </div>
+                    </div>
 
 
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-                </li>
-            </ul>
-            <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                <!-- <ul class="breadcrumbmodify d-flex justify-content-center align-items-center">
+                    <li class="bread-item"><a href="#">Выберите<br>услугу</a></li>
+                    <li>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</li>
+                    <li class="bread-item doctor"><a>Выберите<br>врача</a></li>
+                    <li>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</li>
+                    <li class="bread-item"><a>Выберите<br>город</a></li>
+                    <li>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</li>
+                    <li class="bread-item"><a>Выберите<br>дату и время приёма</a></li>
+                    <li>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</li>
+                    <li class="bread-item"><a>Введите<br>свои данные</a></li>
+                </ul> -->
+            </nav>
+            <nav class="d-block d-sm-block d-md-none"> <!-- Маленький экран -->
+                <ul class="breadcrumbmodify">
+                    <li class="bread-item"><a href="#">Выберите услугу</a></li>
+                    <li class="bread-item"><a>Выберите врача</a></li>
+                    <li class="bread-item"><a>Выберите город</a></li>
+                    <li class="bread-item"><a>Выберите дату и время приёма</a></li>
+                    <li class="bread-item"><a>Введите свои данные</a></li>
+                </ul>
+            </nav>
+
+            <!-- <div class="chooseservice">
+                <input type="text" class="form-control" placeholder="Укажите услугу">
+            </div>
+            <div class="choosedoctor d-none">
+                <ul>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+            <div class="choosecity d-none">
+                <ul>
+                    <li>Пятигорск</li>
+                    <li>Минеральные Воды</li>
+                    <li>Ессентуки</li>
+                </ul>
+            </div>
+            <div class="choosedatetime d-none">
+                <input type="text" id="datetimepicker">
+            </div>
+            <div class="enterinfo d-none"> -->
+                
             </div>
         </form>
     </div>

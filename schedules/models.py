@@ -30,3 +30,14 @@ class WorkDate(models.Model):
 
     def __str__(self):
         return '%s - %s' % (self.doctor, self.date)
+
+
+class WorkCity(models.Model):
+    city = models.CharField(max_length=50, verbose_name='Город')
+
+    class Meta:
+        verbose_name = 'Город'
+        verbose_name_plural = 'Города'
+
+    def __str__(self):
+        return '%s' % self.city
