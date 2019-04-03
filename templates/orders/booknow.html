@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
     Записаться на приём
@@ -8,92 +9,57 @@
 <div class="calendar">
     <div class="container">
         <h1>Записаться на приём</h1>
-        <form action="">
             <nav class="d-none d-sm-none d-md-block">  <!-- Большой экран -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="service-tab" data-toggle="tab" href="#service" role="tab" aria-controls="service" aria-selected="true">Выберите услугу</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="doctor-tab" data-toggle="tab" href="#doctor" role="tab" aria-controls="doctor" aria-selected="false">Выберите врача</a>
+                        <a class="nav-link disabled" id="doctor-tab" data-toggle="tab" href="#doctor" role="tab" aria-controls="doctor" aria-selected="false">Выберите врача</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="city-tab" data-toggle="tab" href="#city" role="tab" aria-controls="city" aria-selected="false">Выберите город</a>
+                        <a class="nav-link disabled" id="city-tab" data-toggle="tab" href="#city" role="tab" aria-controls="city" aria-selected="false">Выберите город</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="datetime-tab" data-toggle="tab" href="#datetime" role="tab" aria-controls="datetime" aria-selected="false">Выберите дату и время</a>
+                        <a class="nav-link disabled" id="datetime-tab" data-toggle="tab" href="#datetime" role="tab" aria-controls="datetime" aria-selected="false">Выберите дату и время</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="enterinfo-tab" data-toggle="tab" href="#enterinfo" role="tab" aria-controls="enterinfo" aria-selected="false">Введите свои данные</a>
+                        <a class="nav-link disabled" id="enterinfo-tab" data-toggle="tab" href="#enterinfo" role="tab" aria-controls="enterinfo" aria-selected="false">Введите свои данные</a>
                     </li>
-                    </ul>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="service" role="tabpanel" aria-labelledby="service-tab">
-                            <input type="text" class="form-control" placeholder="Выберите услугу">   
-                        </div>
-                        <div class="tab-pane fade" id="doctor" role="tabpanel" aria-labelledby="doctor-tab">
-                                <input type="text" class="form-control" placeholder="Выберите врача">
-                        </div>
-                        <div class="tab-pane fade" id="city" role="tabpanel" aria-labelledby="city-tab">
-                            <input type="text" class="form-control" placeholder="Выберите город">
-                        </div>
-                        <div class="tab-pane fade" id="datetime" role="tabpanel" aria-labelledby="datetime-tab">
-                                <input type="text" class="form-control" placeholder="Выберите дату и время">
-                        </div>
-                        <div class="tab-pane fade" id="enterinfo" role="tabpanel" aria-labelledby="enterinfo-tab">
-                                <input type="text" class="form-control" placeholder="Введите свои данные">
-                        </div>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="service" role="tabpanel" aria-labelledby="service-tab">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{ form.servicechoice }}
+                            {{ form.media }}
+                            <button type="submit" class="btn btn-success">Далее</button>
+                        </form>
                     </div>
-
-
-                <!-- <ul class="breadcrumbmodify d-flex justify-content-center align-items-center">
-                    <li class="bread-item"><a href="#">Выберите<br>услугу</a></li>
-                    <li>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</li>
-                    <li class="bread-item doctor"><a>Выберите<br>врача</a></li>
-                    <li>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</li>
-                    <li class="bread-item"><a>Выберите<br>город</a></li>
-                    <li>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</li>
-                    <li class="bread-item"><a>Выберите<br>дату и время приёма</a></li>
-                    <li>&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;</li>
-                    <li class="bread-item"><a>Введите<br>свои данные</a></li>
-                </ul> -->
+                    <div class="tab-pane fade" id="doctor" role="tabpanel" aria-labelledby="doctor-tab">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{ form.doctorchoice }}
+                            {{ form.media }}
+                            <button type="submit" class="btn btn-success">Далее</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="city" role="tabpanel" aria-labelledby="city-tab">
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            {{ form.citychoice }}
+                            {{ form.media }}
+                            <button type="submit" class="btn btn-success">Далее</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="datetime" role="tabpanel" aria-labelledby="datetime-tab">
+                            <input type="text" class="form-control" placeholder="Выберите дату и время">
+                    </div>
+                    <div class="tab-pane fade" id="enterinfo" role="tabpanel" aria-labelledby="enterinfo-tab">
+                            <input type="text" class="form-control" placeholder="Введите свои данные">
+                    </div>
+                </div>
             </nav>
-            <nav class="d-block d-sm-block d-md-none"> <!-- Маленький экран -->
-                <ul class="breadcrumbmodify">
-                    <li class="bread-item"><a href="#">Выберите услугу</a></li>
-                    <li class="bread-item"><a>Выберите врача</a></li>
-                    <li class="bread-item"><a>Выберите город</a></li>
-                    <li class="bread-item"><a>Выберите дату и время приёма</a></li>
-                    <li class="bread-item"><a>Введите свои данные</a></li>
-                </ul>
-            </nav>
-
-            <!-- <div class="chooseservice">
-                <input type="text" class="form-control" placeholder="Укажите услугу">
-            </div>
-            <div class="choosedoctor d-none">
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                    <li>4</li>
-                    <li>5</li>
-                </ul>
-            </div>
-            <div class="choosecity d-none">
-                <ul>
-                    <li>Пятигорск</li>
-                    <li>Минеральные Воды</li>
-                    <li>Ессентуки</li>
-                </ul>
-            </div>
-            <div class="choosedatetime d-none">
-                <input type="text" id="datetimepicker">
-            </div>
-            <div class="enterinfo d-none"> -->
-                
-            </div>
-        </form>
     </div>
 </div>
 {% endblock content %}

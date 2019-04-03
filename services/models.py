@@ -38,7 +38,7 @@ class Service(models.Model):
         ordering = ['name']
 
     def __str__(self):
-        return ''
+        return '%s' % self.name 
     
     def save(self, *args, **kwargs):
         if self.ref_doc == 0 and self.ref_napr == 0 and self.ref_agent == 0:
