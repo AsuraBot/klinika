@@ -11,7 +11,6 @@ class ServiceMain(models.Model):
     ref_doc = models.PositiveSmallIntegerField(verbose_name='Процент специалиста',default=0,validators=[MaxValueValidator(100)])
     ref_napr = models.PositiveSmallIntegerField(verbose_name='Процент направившего',default=0,validators=[MaxValueValidator(100)])
     ref_agent = models.PositiveSmallIntegerField(verbose_name='Процент агента',default=0,validators=[MaxValueValidator(100)])
-    is_active = models.BooleanField(verbose_name='Активна', default=True, help_text='Предоставляется ли услуга')
 
     class Meta:
         verbose_name = 'Тип услуги'

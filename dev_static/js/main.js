@@ -14,10 +14,37 @@ $(document).ready(function(){
         format:'d.m.Y H:i',   // Календарь
     });
 
-    $('.breadcrumbmodify .doctor').click(function(){
-        $('.choosedoctor').addClass('d-block');
-        $('.choosedoctor').removeClass('d-none');
-        $('.chooseservice').addClass('d-none');
-        $('.chooseservice').removeClass('d-block');
+    $('.services').select2({
+        placeholder: {
+            id: '-1',
+            text: 'Выберите услугу из списка или начните вводить название услуги...'
+        }
+      });
+    $('.doctors').select2({
+        placeholder: {
+            id: '-1',
+            text: 'Выберите врача'
+        }
+      });
+
+    $('.servicebtn').click(function(e){         //ajax 
+        e.preventDefault();
+
+        csrf_token = $('#orderform [name="csrfmiddlewaretoken"]').val();
+        service_id=$('.services').val();
+
+        data = {
+            'csrfmiddlewaretoken' : csrf_token,
+            'service_id' : service_id,
+        }
+
+        $.ajax ({
+            type: 'POST',
+            url: $('#orderform').attr('action'),
+            data: data,
+            success: function(data){
+                console.log('data.doctors');
+            }
+        });
     });
 });

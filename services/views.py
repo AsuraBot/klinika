@@ -5,7 +5,7 @@ from services.models import Service, ServiceMain
 # Create your views here.
 
 def services(request):
-    servicemains = ServiceMain.objects.filter(is_active=True)
+    servicemains = ServiceMain.objects.all()
 
     context = {
         'servicemains': servicemains,

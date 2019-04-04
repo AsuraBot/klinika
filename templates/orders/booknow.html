@@ -15,32 +15,44 @@
                         <a class="nav-link active" id="service-tab" data-toggle="tab" href="#service" role="tab" aria-controls="service" aria-selected="true">Выберите услугу</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" id="doctor-tab" data-toggle="tab" href="#doctor" role="tab" aria-controls="doctor" aria-selected="false">Выберите врача</a>
+                        <a class="nav-link" id="doctor-tab" data-toggle="tab" href="#doctor" role="tab" aria-controls="doctor" aria-selected="false">Выберите врача</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" id="city-tab" data-toggle="tab" href="#city" role="tab" aria-controls="city" aria-selected="false">Выберите город</a>
+                        <a class="nav-link" id="city-tab" data-toggle="tab" href="#city" role="tab" aria-controls="city" aria-selected="false">Выберите город</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" id="datetime-tab" data-toggle="tab" href="#datetime" role="tab" aria-controls="datetime" aria-selected="false">Выберите дату и время</a>
+                        <a class="nav-link" id="datetime-tab" data-toggle="tab" href="#datetime" role="tab" aria-controls="datetime" aria-selected="false">Выберите дату и время</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" id="enterinfo-tab" data-toggle="tab" href="#enterinfo" role="tab" aria-controls="enterinfo" aria-selected="false">Введите свои данные</a>
+                        <a class="nav-link" id="enterinfo-tab" data-toggle="tab" href="#enterinfo" role="tab" aria-controls="enterinfo" aria-selected="false">Введите свои данные</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="service" role="tabpanel" aria-labelledby="service-tab">
-                        <form action="" method="post">
+                        <form action="{% url 'example' %}" method="post" id="orderform">
                             {% csrf_token %}
-                            {{ form.servicechoice }}
-                            {{ form.media }}
-                            <button type="submit" class="btn btn-success">Далее</button>
+                            <select class="services form-control" style="width:100%" name="services">
+                                <option value="-1"></option>
+                                {% for mainservice in mainservices %}
+                                <optgroup label="{{ mainservice.name }}">
+                                    {% for service in mainservice.services.all %}
+                                        <option value="{{ service.id }}">{{ service.name }}</option>
+                                    {% endfor %}
+                                </optgroup>
+                                {% endfor %}
+                            </select>
+                            <button type="submit" class="btn btn-success servicebtn">Далее</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="doctor" role="tabpanel" aria-labelledby="doctor-tab">
                         <form action="" method="post">
                             {% csrf_token %}
-                            {{ form.doctorchoice }}
-                            {{ form.media }}
+                            <select class="doctors form-control" style="width:100%" name="doctors">
+                                <option value="-1"></option>
+                                {% for doctor in doctors %}
+                                    <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                                {% endfor %}
+                            </select>
                             <button type="submit" class="btn btn-success">Далее</button>
                         </form>
                     </div>

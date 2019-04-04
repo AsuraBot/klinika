@@ -9,4 +9,5 @@ urlpatterns = [
     path('service-autocomplete/', ServiceAutocomplete.as_view(), name='service-autocomplete'),
     path('doctor-autocomplete/', DoctorAutocomplete.as_view(), name='doctor-autocomplete'),
     path('city-autocomplete/', CityAutocomplete.as_view(), name='city-autocomplete'),
+    path('example/', views.example, name='example')
 ]
