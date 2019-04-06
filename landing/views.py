@@ -6,7 +6,7 @@ from news.models import Novost
 # Create your views here.
 
 def index(request):
-    popular_services = ServiceMain.objects.filter(is_active=True)[:4]
+    popular_services = ServiceMain.objects.all()[:4]
     last_news = Novost.objects.filter(is_active=True)[:4]
 
     context = {

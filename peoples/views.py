@@ -21,9 +21,9 @@ def doctors_detail(request, doctors_id):
     }
     return render(request, 'doctors/doctorsdetail.html', context)
 
-class DoctorAutocomplete(autocomplete.Select2QuerySetView):
-     def get_queryset(self):
-        qs = Doctor.objects.all() 
-        if self.q:
-            qs = qs.filter(name__icontains=self.q) 
-        return qs
+def login(request):
+    context = {
+
+    }
+
+    return render(request, 'login/login.html')
