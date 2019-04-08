@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import reverse
 from django.utils.html import format_html
-from peoples.models import Client, Doctor, Operator, MainOperator, Director, DoctorMain
+from peoples.models import Client, Doctor, Operator, MainOperator, Director, DoctorMain, OutsideDoctor, Agent
 from schedules.models import WorkDate
 
 
@@ -16,6 +16,8 @@ class DoctorAdmin(admin.ModelAdmin):
     
 admin.site.register(Client)
 admin.site.register(Doctor, DoctorAdmin)
+admin.site.register(OutsideDoctor)
+admin.site.register(Agent)
 admin.site.register(Operator)
 admin.site.register(MainOperator)
 admin.site.register(Director)

@@ -48,7 +48,7 @@ class Doctor(People):
     doctor_main = models.ManyToManyField(DoctorMain,verbose_name='Специальность',related_name='doctors')
     ref_doc = models.PositiveSmallIntegerField(verbose_name='Процент специалиста', default=0, validators=[MaxValueValidator(100)])
     oklad = models.PositiveIntegerField(verbose_name='Оклад', default=0)
-    information = HTMLField(verbose_name='Информация')
+    information = HTMLField(verbose_name='Информация', null=True, blank=True)
 
     def get_picture_url(self, filename):
         ext = filename.split('.')[-1]
@@ -72,6 +72,21 @@ class Doctor(People):
 
     def get_absolute_url(self):
         return reverse("doctors_detail", args=[self.id])
+
+
+class OutsideDoctor(People):
+    agency = models.CharField(max_length=250, verbose_name='Мед. учреждение')
+
+    class Meta:
+        verbose_name = 'Внешние врачи'
+        verbose_name_plural = 'Внешние врачи'
+
+
+class Agent(People):
+    class Meta:
+        verbose_name = 'Агенты'
+        verbose_name_plural = 'Агенты'
+
 
 class Operator(People):
     user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, verbose_name='Профиль', null=True, blank=True, related_name='operators')

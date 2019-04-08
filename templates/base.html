@@ -8,13 +8,13 @@
     </title>
   </head>
   <body>
+    {% include 'scripts.html' %}
+
     {% include 'header.html' %}
 
     {% block content %}
     {% endblock content %}
 
     {% include 'footer.html' %}
-
-    {% include 'scripts.html' %}
   </body>
 </html>

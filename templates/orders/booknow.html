@@ -15,21 +15,21 @@
                         <a class="nav-link active" id="service-tab" data-toggle="tab" href="#service" role="tab" aria-controls="service" aria-selected="true">Выберите услугу</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="doctor-tab" data-toggle="tab" href="#doctor" role="tab" aria-controls="doctor" aria-selected="false">Выберите врача</a>
+                        <a class="nav-link disabled" id="doctor-tab" data-toggle="tab" href="#doctor" role="tab" aria-controls="doctor" aria-selected="false">Выберите врача</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="city-tab" data-toggle="tab" href="#city" role="tab" aria-controls="city" aria-selected="false">Выберите город</a>
+                        <a class="nav-link disabled" id="city-tab" data-toggle="tab" href="#city" role="tab" aria-controls="city" aria-selected="false">Выберите город</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="datetime-tab" data-toggle="tab" href="#datetime" role="tab" aria-controls="datetime" aria-selected="false">Выберите дату и время</a>
+                        <a class="nav-link disabled" id="datetime-tab" data-toggle="tab" href="#datetime" role="tab" aria-controls="datetime" aria-selected="false">Выберите дату и время</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="enterinfo-tab" data-toggle="tab" href="#enterinfo" role="tab" aria-controls="enterinfo" aria-selected="false">Введите свои данные</a>
+                        <a class="nav-link disabled" id="enterinfo-tab" data-toggle="tab" href="#enterinfo" role="tab" aria-controls="enterinfo" aria-selected="false">Введите свои данные</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="service" role="tabpanel" aria-labelledby="service-tab">
-                        <form action="{% url 'example' %}" method="post" id="orderform">
+                        <form action="{% url 'doctorfilter' %}" method="post" id="orderform">
                             {% csrf_token %}
                             <select class="services form-control" style="width:100%" name="services">
                                 <option value="-1"></option>
@@ -45,30 +45,80 @@
                         </form>
                     </div>
                     <div class="tab-pane fade" id="doctor" role="tabpanel" aria-labelledby="doctor-tab">
-                        <form action="" method="post">
+                        <form action="{% url 'cityfilter' %}" method="post" id="doctorform">
                             {% csrf_token %}
-                            <select class="doctors form-control" style="width:100%" name="doctors">
+                            <select class="orderdoctors form-control" style="width:100%" name="doctors">
                                 <option value="-1"></option>
-                                {% for doctor in doctors %}
-                                    <option value="{{ doctor.id }}">{{ doctor.name }}</option>
-                                {% endfor %}
                             </select>
-                            <button type="submit" class="btn btn-success">Далее</button>
+                            <button type="submit" class="btn btn-success doctorbtn">Далее</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="city" role="tabpanel" aria-labelledby="city-tab">
-                        <form action="" method="post">
+                        <form action="{% url 'datetimefilter' %}" method="post" id="cityform">
                             {% csrf_token %}
-                            {{ form.citychoice }}
-                            {{ form.media }}
-                            <button type="submit" class="btn btn-success">Далее</button>
+                            <select class="ordercities form-control" style="width:100%" name="cities">
+                                <option value="-1"></option>
+                            </select>
+                            <button type="submit" class="btn btn-success citybtn">Далее</button>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="datetime" role="tabpanel" aria-labelledby="datetime-tab">
-                            <input type="text" class="form-control" placeholder="Выберите дату и время">
+                        <input type="text" class="form-control" id="datetimepicker">
+                        <button class="btn btn-success d-none datetimebtn">Далее</button>
                     </div>
                     <div class="tab-pane fade" id="enterinfo" role="tabpanel" aria-labelledby="enterinfo-tab">
-                            <input type="text" class="form-control" placeholder="Введите свои данные">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="validationTextarea">Textarea</label>
+                                    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
+                                    <div class="invalid-feedback">
+                                    Please enter a message in the textarea.
+                                    </div>
+                                </div>
+                                
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                    <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
+                                    <div class="invalid-feedback">Example invalid feedback text</div>
+                                </div>
+                                
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
+                                    <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
+                                </div>
+                                <div class="custom-control custom-radio mb-3">
+                                    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
+                                    <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
+                                    <div class="invalid-feedback">More example invalid feedback text</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <select class="custom-select" required>
+                                    <option value="">Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                    </select>
+                                    <div class="invalid-feedback">Example invalid custom select feedback</div>
+                                </div>
+                                
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                                    <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                </div>
+                                </form>
+                        <form action="" class="form-group">
+                            <input type="text" class="form-control" required placeholder="Ваше имя">
+                            <input type="text" class="form-control" required placeholder="Ваша фамилия">
+                            <input type="text" class="form-control" placeholder="Ваше отчество (если есть)">
+                            <input type="date" class="form-control" required placeholder="Ваша дата рождения">
+                            <input type="text" class="form-control" required placeholder="Ваш контактный телефон">
+                            <input type="text" class="form-control" placeholder="Ваш адрес">
+                            <input type="email" class="form-control" placeholder="Ваша электронная почта">
+                            <input type="checkbox" class="form-check-input" >
+                            <button type="submit" class="btn btn-success enterinfobtn">Далее</button>
+                        </form>
                     </div>
                 </div>
             </nav>

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'vacancys',
     'staticpages',
     'news',
+    # 'reports',
 ]
 
 MIDDLEWARE = [

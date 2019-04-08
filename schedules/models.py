@@ -18,9 +18,10 @@ class WorkTime(models.Model):
 
 
 class WorkDate(models.Model):
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='workdates', verbose_name='Врач')
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, verbose_name='Врач', related_name='workdates')
     date = models.DateField(verbose_name='Дата приёма')
     worktimes = models.ManyToManyField(WorkTime, verbose_name='Рабочие часы', related_name='workdates')
+    workcity = models.ForeignKey('WorkCity', on_delete=models.CASCADE, verbose_name='Город приёма', related_name='workdates')
     is_work = models.BooleanField(default=False, verbose_name='Рабочий день')
 
     class Meta:
