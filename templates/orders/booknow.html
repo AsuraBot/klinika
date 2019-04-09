@@ -67,57 +67,27 @@
                         <button class="btn btn-success d-none datetimebtn">Далее</button>
                     </div>
                     <div class="tab-pane fade" id="enterinfo" role="tabpanel" aria-labelledby="enterinfo-tab">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="validationTextarea">Textarea</label>
-                                    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
-                                    <div class="invalid-feedback">
-                                    Please enter a message in the textarea.
-                                    </div>
-                                </div>
-                                
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" required placeholder="Ваше имя">
+                                <div class="invalid-feedback">Обязательно для заполнения</div>
+                                <input type="text" class="form-control" required placeholder="Ваша фамилия">
+                                <div class="invalid-feedback">Обязательно для заполнения</div>
+                                <input type="text" class="form-control" placeholder="Ваше отчество (если есть)">
+                                <input type="date" class="form-control" required placeholder="Ваша дата рождения">
+                                <div class="invalid-feedback">Обязательно для заполнения</div>
+                                <input type="text" class="form-control" required placeholder="Ваш контактный телефон">
+                                <div class="invalid-feedback">Обязательно для заполнения</div>
+                                <input type="text" class="form-control" placeholder="Ваш адрес (необязательно)">
+                                <input type="email" class="form-control" placeholder="Ваша электронная почта (необязательно)">
                                 <div class="custom-control custom-checkbox mb-3">
                                     <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
-                                    <label class="custom-control-label" for="customControlValidation1">Check this custom checkbox</label>
-                                    <div class="invalid-feedback">Example invalid feedback text</div>
+                                    <label class="custom-control-label" for="customControlValidation1">Соглашение о передаче персональных данных <br>
+                                        Нажимая кнопку "Записаться на прием" я подтверждаю, что в соответствии с Федеральным Законом Российской Федерации от 27 июля 2006 г. №152-ФЗ «О персональных данных» даю согласие на обработку своих ПДн, в т.ч. сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу, обезличивание, блокирование, удаление, уничтожение, содержащихся в регистрационной форме, владельцу портала и сотрудникам регистратуры ЛПУ, на прием в которое я произвожу запись.</label>
+                                    <div class="invalid-feedback">Вы не приняли соглашение о передаче персональных данных</div>
                                 </div>
-                                
-                                <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="customControlValidation2" name="radio-stacked" required>
-                                    <label class="custom-control-label" for="customControlValidation2">Toggle this custom radio</label>
-                                </div>
-                                <div class="custom-control custom-radio mb-3">
-                                    <input type="radio" class="custom-control-input" id="customControlValidation3" name="radio-stacked" required>
-                                    <label class="custom-control-label" for="customControlValidation3">Or toggle this other custom radio</label>
-                                    <div class="invalid-feedback">More example invalid feedback text</div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <select class="custom-select" required>
-                                    <option value="">Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                    </select>
-                                    <div class="invalid-feedback">Example invalid custom select feedback</div>
-                                </div>
-                                
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="validatedCustomFile" required>
-                                    <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                    <div class="invalid-feedback">Example invalid custom file feedback</div>
-                                </div>
-                                </form>
-                        <form action="" class="form-group">
-                            <input type="text" class="form-control" required placeholder="Ваше имя">
-                            <input type="text" class="form-control" required placeholder="Ваша фамилия">
-                            <input type="text" class="form-control" placeholder="Ваше отчество (если есть)">
-                            <input type="date" class="form-control" required placeholder="Ваша дата рождения">
-                            <input type="text" class="form-control" required placeholder="Ваш контактный телефон">
-                            <input type="text" class="form-control" placeholder="Ваш адрес">
-                            <input type="email" class="form-control" placeholder="Ваша электронная почта">
-                            <input type="checkbox" class="form-check-input" >
-                            <button type="submit" class="btn btn-success enterinfobtn">Далее</button>
+                            </div>
+                            <button type="submit" class="btn btn-success enterinfobtn">Записаться на приём</button>
                         </form>
                     </div>
                 </div>
