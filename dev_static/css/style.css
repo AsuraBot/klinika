@@ -329,6 +329,19 @@ h1 {
     color: #fff;
 }
 
+
+/********** SERVICES **********/
+
+.container .servicedetailorder {
+    background-color: #0063A0;
+    color: #fff;
+}
+
+.container .servicedetailorder:hover,
+.container .servicedetailorder:focus {
+    color: #01C5A2;
+}
+
 /********** NEWS **********/
 
 .news h1 {
@@ -416,6 +429,34 @@ h1 {
     text-align: center;
     padding: 0 10px;
 }
+
+#myTab li {
+    margin-bottom: 20px;
+}
+
+#myTabContent .btn {
+    margin-top: 25px;
+}
+
+.nav-tabs .nav-link {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: white;
+    background-color: #0063A0;
+}
+
+#myTabContent .btn-success {
+    color: #fff;
+    background-color: #0063A0;
+    border-color: #0063A0;
+}
+
+/* #myTabContent .btn-success:active {
+    border-color: #0063A0;
+} */
 
 /* #myTabContent .show {
     background-color: #0063A0;

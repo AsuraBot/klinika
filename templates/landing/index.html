@@ -6,7 +6,7 @@
 {% endblock title %}
 
 {% block content %}
-  <div class="carousel" id="index-carousel">
+  <div class="carousel" id="index-carousel">  <!-- слайдер -->
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -25,16 +25,16 @@
           <div class="carousel-item">
             <a href='#'><img class="d-block" src="{% static 'images/mainbg.png' %}">
               <div class="carousel-caption d-none d-md-block">
-                <h5>.L..</h5>
-                <p>...</p>
+                <h5>.L.</h5>
+                <p>.L1.</p>
               </div>
             </a>
           </div>
           <div class="carousel-item">
             <a href='#'><img class="d-block" src="{% static 'images/mainbg.png' %}">
               <div class="carousel-caption d-none d-md-block">
-                <h5>...</h5>
-                <p>...</p>
+                <h5>.K.</h5>
+                <p>.K2.</p>
               </div>
             </a>
           </div>
@@ -50,10 +50,10 @@
     </div>
   </div>
 
-  <div class="index-services">
+  <div class="index-services">  <!-- Популярные типы услуг -->
     <div class="container">
       <h2 class="text-center">Услуги</h2>
-      <p class="text-center pt-2">Лучшее УЗИ</p>
+      <p class="text-center pt-2">мб убрать это вообще</p>
       <div class="d-flex justify-content-around flex-wrap">
         {% for service in popular_services %}
           <div class="one-service">
@@ -68,9 +68,10 @@
     </div>
   </div>
 
-  <div class="index-news">
+  <div class="index-news">     <!-- Название новостей не показывает -->
     <div class="container">
       <h2 class="text-center">Новости</h2>
+      <p class="text-center pt-2">мб убрать это вообще</p>
       <div class="d-flex justify-content-around flex-wrap">
         {% for new in last_news %}
           <div class="one-new">

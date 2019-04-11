@@ -6,7 +6,7 @@
             <div class="col-md-offset-1 col-md-5">г. Пятигорск, ул. Кузнечная 26</div>
             <div class="col-md-7 text-right">
                 <span>+7 (928) 828 4001</span>
-                <a href="#">Записаться на приём</a>
+                <a href="{% url 'booknow' %}">Записаться на приём</a>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
                 <li class="nav-item"><a class="nav-link" href="#">Отзывы</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'vacancys' %}">Вакансии</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Вход для персонала</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Вход для персонала</a></li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Введите услугу" aria-label="Search">
