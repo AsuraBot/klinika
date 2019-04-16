@@ -6,7 +6,6 @@ from peoples.models import Doctor
 
 class WorkTime(models.Model):
     time = models.TimeField(verbose_name='Время приёма')
-    is_free = models.BooleanField(default=True, verbose_name='Свободно')
 
     class Meta:
         verbose_name = 'Время приёма'

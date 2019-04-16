@@ -1,9 +1,4 @@
 $(document).ready(function(){
-    $(".dropdown").hover(function() {
-            $(this).children().toggleClass('d-block');  //Отображение при наведении
-        }
-    );
-
     
     (function() {
         'use strict';
@@ -45,6 +40,19 @@ $(document).ready(function(){
     }
     });
 
+    $('.services').on('change', function(){
+        $('.servicebtn').removeClass('d-none')
+    });
+
+    $('.orderdoctors').on('change', function(){
+        $('.doctorbtn').removeClass('d-none')
+    });
+
+    $('.ordercities').on('change', function(){
+        $('.citybtn').removeClass('d-none')
+    });
+
+
     $('.servicebtn').click(function(e){         //service button 
         e.preventDefault();
 
@@ -74,6 +82,7 @@ $(document).ready(function(){
         $('#city-tab').addClass('disabled');
         $('#datetime-tab').addClass('disabled');
         $('#enterinfo-tab').addClass('disabled');
+        $('.doctorbtn').addClass('d-none');
     });
 
     $('.doctorbtn').click(function(e){         //doctor button
@@ -104,6 +113,7 @@ $(document).ready(function(){
         $('#city-tab').tab('show');
         $('#datetime-tab').addClass('disabled');
         $('#enterinfo-tab').addClass('disabled');
+        $('.citybtn').addClass('d-none');
     });
 
     $('.citybtn').click(function(e){         //city button
@@ -142,7 +152,7 @@ $(document).ready(function(){
                         })
                         datevalue = $('#datetimepicker').val();
                         datevalue = datevalue.slice(0,10);
-                        console.log(datevalue);
+                        
                         this.setOptions({
                             allowTimes: data.schedule[datevalue],
                         })
@@ -167,26 +177,45 @@ $(document).ready(function(){
     $('.enterinfobtn').click(function(e){         //enterinfo button
         e.preventDefault();
 
-        csrf_token = $('#doctorform [name="csrfmiddlewaretoken"]').val();
+        csrf_token = $('#enterinfoform [name="csrfmiddlewaretoken"]').val();
+        service_id = $('.services').val();
         doctor_id = $('.orderdoctors').val();
+        city_id = $('.ordercities').val();
+        datetime = $('#datetimepicker').val().split(' ');
+        date = datetime[0];
+        time = datetime[1];
+        client_name = $('#client_lastname').val() + ' ' + $('#client_firstname').val() + ' ' + $('#client_surname').val();
+        client_address = $('#client_address').val()
+        client_phone = $('#client_phone').val()
+        client_dob = $('#client_dob').val()
+        client_mail = $('#client_mail').val()
 
         data = {
             'csrfmiddlewaretoken' : csrf_token,
+            'service_id' : service_id,
             'doctor_id' : doctor_id,
+            'city_id' : city_id,
+            'date' : date,
+            'time' : time,
+            'client_name' : client_name,
+            'client_address' : client_address,
+            'client_phone' : client_phone,
+            'client_dob' : client_dob,
+            'client_mail' : client_mail,
         }
         
         $.ajax ({
             type: 'POST',
-            url: $('#doctorform').attr('action'),
+            url: $('#enterinfoform').attr('action'),
             data: data,
             success: function(data){
-                citychoice = $('.ordercities');
-                citychoice.find('option').remove();
-                citychoice.append('<option value="-1"></option>');
-                for(i=0; i < data.cities_id.length; i++){
-                    citychoice.append('<option value="'+ data.cities_id[i] + '">' + data.cities_name[i] + '</option>');
-                }
+                
             }
         });
     });
+
+    $(function(){
+        //2. Получить элемент, к которому необходимо добавить маску
+        $("#client_phone").mask("8(999) 999-9999");
+      });
 });

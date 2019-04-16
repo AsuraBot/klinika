@@ -10,41 +10,37 @@
             </div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0063A0;">
-        <a class="navbar-brand" href="{% url 'index' %}">
-            <!-- <img src="{% static 'images/brand.jpg' %}" width="100" height="100" alt="sys"> -->
-            Поликлиника 4Д
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse  justify-content-end" id="navbarSupportedContent">
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Главная</a></li>           
-                <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Услуги</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'doctors' %}">Врачи</a></li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">О клинике <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                {% for about in abouts %}
-                                    <li><a href="{% url 'about_detail' about.id %}">{{about.title}}</a></li>
-                                {% endfor %}
-                            </div>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A93C9;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">Главная</a></li>           
+                    <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Услуги</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'doctors' %}">Врачи</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">О клинике</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            {% for about in abouts %}
+                                <a class="dropdown-item" href="{% url 'about_detail' about.id %}">{{about.title}}</a>
+                            {% endfor %}
                         </div>
-                    </ul>
-                </li>   
-                <li class="nav-item"><a class="nav-link" href="{% url 'news' %}">Новости</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Отзывы</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'vacancys' %}">Вакансии</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Вход для персонала</a></li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Введите услугу" aria-label="Search">
-                <button type="submit" class="btn btn-outline-light my-2 my-sm-0">Поиск</button>
-            </form>
-        </div>
-    </nav>
+                    </li>   
+                    <li class="nav-item"><a class="nav-link" href="{% url 'news' %}">Новости</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Отзывы</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'vacancys' %}">Вакансии</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Вход для персонала</a></li> -->
+                </ul>
+                <form class="form-inline nav-search">
+                    <!-- <input class="form-control mr-sm-2" type="search" placeholder="Введите услугу" aria-label="Search"> -->
+                    <span>
+                        <i class="fa fa-search"></i>
+                    </span>
+                </form>
+            </div>
+        </nav>
+    </div>
 </header>

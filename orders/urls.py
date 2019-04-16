@@ -6,4 +6,5 @@ urlpatterns = [
     path('doctorfilter/', views.doctorfilter, name='doctorfilter'),
     path('cityfilter/', views.cityfilter, name='cityfilter'),
     path('datetimefilter/', views.datetimefilter, name='datetimefilter'),
+    path('ordercreate/', views.ordercreate, name='ordercreate'),
 ]

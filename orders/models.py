@@ -9,11 +9,12 @@ from peoples.models import Doctor
 
 class ServiceInOrder(models.Model):
     order = models.ForeignKey('Order', on_delete=models.CASCADE, related_name='services_order', verbose_name='Заказ')
-    service = models.CharField(max_length=250, verbose_name='Услуга')
-    doctor = models.CharField(max_length=250, verbose_name='Врач')
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='services_order', verbose_name='Услуга')
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='services_order', verbose_name='Врач')
+    city = models.CharField(max_length=250, verbose_name='Город')
     date = models.DateField(verbose_name='Дата')
     time = models.TimeField(verbose_name='Время')
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
+    price = models.PositiveIntegerField(verbose_name='Цена')
 
     class Meta:
         verbose_name = 'Услуга в заказе'
@@ -25,11 +26,12 @@ class ServiceInOrder(models.Model):
 
 class AnalysisInOrder(models.Model):
     order = models.ForeignKey('Order', on_delete=models.CASCADE, related_name='analysis_order', verbose_name='Заказ')
-    analysis = models.CharField(max_length=250, verbose_name='Анализ')
-    doctor = models.CharField(max_length=250, verbose_name='Врач')
+    analysis = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='analysis_order', verbose_name='Анализ')
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='analysis_order', verbose_name='Врач')
+    city = models.CharField(max_length=250, verbose_name='Город')
     date = models.DateField(verbose_name='Дата')
     time = models.TimeField(verbose_name='Время')
-    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
+    price = models.PositiveIntegerField(verbose_name='Цена')
 
     class Meta:
         verbose_name = 'Анализ в заказе'
@@ -41,11 +43,12 @@ class AnalysisInOrder(models.Model):
 
 class Order(models.Model):
     client_name = models.CharField(max_length=250, verbose_name='Заказчик')
-    clinet_address = models.CharField(max_length=250, verbose_name='Адрес', null=True, blank=True)
-    client_phone = models.CharField(max_length=30, verbose_name='телефон', null=True, blank=True)
+    client_address = models.CharField(max_length=250, verbose_name='Адрес', null=True, blank=True)
+    client_phone = models.CharField(max_length=30, verbose_name='Телефон', null=True, blank=True)
     client_dob = models.DateField(verbose_name='Дата рождения')
-    total_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Итоговая цена')
+    client_mail = models.EmailField(max_length=250, verbose_name='E-mail', null=True, blank=True)
     discount = models.PositiveSmallIntegerField(verbose_name='Скидка', default=0, validators=[MaxValueValidator(100)])
+    total_price = models.PositiveIntegerField(verbose_name='Итоговая цена', default=0)
     status = models.BooleanField(verbose_name='Оплачен', default=False)
 
     class Meta:
