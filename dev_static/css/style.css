@@ -44,6 +44,7 @@ header .top-header {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link:focus {
+    color: white;
     background-color: #1D86BC;
 }
 
@@ -53,7 +54,7 @@ header .navbar {
     box-shadow:0px 0px 35px 2px rgba(0,0,0,0.4);
     -webkit-box-shadow:0px 0px 35px 2px rgba(0,0,0,0.4);
     -moz-box-shadow:0px 0px 35px 2px rgba(0,0,0,0.4);
-    border-radius: 6px;
+    border-radius: 8px;
 }
 
 header .navbar #navbarSupportedContent>ul {
@@ -88,10 +89,25 @@ header .navbar .nav-item .nav-link {
     text-transform: none;
 }
 
+.differences .firstdifference {
+    text-align: center;
+    background-color: white;
+    border: 1px solid #E5E5E5;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.differences .firstdifference i {
+    color: #1D86BC;
+    font-size: 6em;
+    line-height: 135px;
+}
+
 /********** FOOTER **********/
 
 footer {
-    background-color: #0063A0;
+    background-color: #2A93C9;
 }
 
 footer #contacts {
@@ -136,7 +152,7 @@ footer .adresses ul li i {
     position: absolute;
     left: 0;
     top: 2px;
-    color: #0063A0;
+    color: #2A93C9;
 }
 
 footer .adresses ul li span {
@@ -194,7 +210,7 @@ footer .bottom-footer .text-center:first-child {
     background-color: rgba(255, 255, 255, 0.6);
     padding: 15px;
     font-weight: bold;
-    color: #0063A0;    
+    color: #2A93C9;    
 }
 
 .index-services .one-service a:hover p span,
@@ -213,7 +229,7 @@ footer .bottom-footer .text-center:first-child {
 .index-services h2 {
     text-transform: uppercase;
     font-weight: bold;
-    color: #0063A0; 
+    color: #2A93C9; 
 }
 
 .index-services .btn:hover,
@@ -258,7 +274,7 @@ footer .bottom-footer .text-center:first-child {
     background-color: rgba(255, 255, 255, 0.6);
     padding: 15px;
     font-weight: bold;
-    color: #0063A0;    
+    color: #2A93C9;    
 }
 
 .index-news .one-new a:hover p span,
@@ -277,7 +293,7 @@ footer .bottom-footer .text-center:first-child {
 .index-news h2 {
     text-transform: uppercase;
     font-weight: bold;
-    color: #0063A0; 
+    color: #2A93C9; 
 }
 
 .index-news .btn:hover,
@@ -315,7 +331,7 @@ footer .bottom-footer .text-center:first-child {
 
 .container #accordion {
     margin-top: 75px;
-    border-top: 1px solid #0063A0;
+    border-top: 1px solid #2A93C9;
 }
 
 h1 {
@@ -333,7 +349,7 @@ h1 {
 
 #accordion .card .card-header {
     background-color: white;
-    border-bottom: 1px solid #0063A0;
+    border-bottom: 1px solid #2A93C9;
     border-top: none;
     border-right: none;
     border-left: none;
@@ -341,7 +357,7 @@ h1 {
 }
 
 #accordion .card .list-group {
-    border-bottom: 1px solid #0063A0;
+    border-bottom: 1px solid #2A93C9;
 }
 
 #accordion .btn {
@@ -359,7 +375,7 @@ h1 {
 
 #accordion .list-group a:hover,
 #accordion .list-group a:focus {
-    background-color: #0063A0;
+    background-color: #2A93C9;
     color: #fff;
 }
 
@@ -367,7 +383,7 @@ h1 {
 /********** SERVICES **********/
 
 .container .servicedetailorder {
-    background-color: #0063A0;
+    background-color: #2A93C9;
     color: #fff;
 }
 
@@ -416,7 +432,7 @@ h1 {
 }
 
 .newsinfo .btn-primary {
-    background-color: #0063A0;
+    background-color: #2A93C9;
 }
 
 .newsinfo .desc {
@@ -444,12 +460,12 @@ h1 {
 }
 
 .calendar form input {
-    border: 1px solid #0063A0;
+    border: 1px solid #2A93C9;
     margin-bottom: 10px;
 }
 
 .calendar form select {
-    border: 1px solid #0063A0;
+    border: 1px solid #2A93C9;
     border-radius: 0;
     margin-bottom: 10px;
 }
@@ -471,8 +487,8 @@ h1 {
 #myTabContent .btn {
     margin-top: 25px;
     color: #fff;
-    background-color: #0063A0;
-    border-color: #0063A0;
+    background-color: #2A93C9;
+    border-color: #2A93C9;
 }
 
 .nav-tabs .nav-link {
@@ -482,7 +498,7 @@ h1 {
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
     color: white;
-    background-color: #0063A0;
+    background-color: #2A93C9;
 }
 
 /* AUTH */
@@ -511,7 +527,7 @@ height: 40px;
 background: #e0e0e0;
 box-shadow: none;
 outline: 0 none;
-border: 1px solid #0063A0;
+border: 1px solid #2A93C9;
 }
 
 .form-horizontal .form-group i{ /* значки */
@@ -524,13 +540,13 @@ transition : all 0.5s ease 0s;
 }
 
 .form-horizontal .form-control:focus + i{
-color: #0063A0;
+color: #2A93C9;
 }
 
 .form-horizontal .btn{
 font-size: 15px;
 color: #fff;
-background: #0063A0;
+background: #2A93C9;
 padding: 10px 25px;
 border: none;
 text-transform: capitalize;
