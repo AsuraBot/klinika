@@ -12,6 +12,13 @@ class ServiceMain(models.Model):
     ref_napr = models.PositiveSmallIntegerField(verbose_name='Процент направившего',default=0,validators=[MaxValueValidator(100)])
     ref_agent = models.PositiveSmallIntegerField(verbose_name='Процент агента',default=0,validators=[MaxValueValidator(100)])
 
+    def get_picture_url(self, filename):
+        ext = filename.split('.')[-1]
+        filename = '%s.%s' % (self.id, ext)
+        return 'images/servicesmain/%s' % filename
+
+    image = models.ImageField(verbose_name='Фото', upload_to=get_picture_url, blank=True, null=True)
+
     class Meta:
         verbose_name = 'Тип услуги'
         verbose_name_plural = 'Тип услуг'

@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load imagefit %}
 
 {% block title %}
   Поликлиника УЗИ 4Д
 {% endblock title %}
 
 {% block content %}
-  <!-- <div class="carousel" id="index-carousel">
+  <div class="carousel" id="index-carousel">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -48,25 +49,28 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-  </div> -->
+  </div>
 
-  <div class="differences">
+</div> <!-- wraper -->
+
+  <div class="differences"> <!-- Чем мы отличаемся от других --> 
     <div class="container">
-      <h2 class="text-center">Чем мы отличаемся от других</h2>
-      <div class="d-flex justify-content-around flex-wrap">
-        <div class="first">
-          <div class="firstdifference">
-            <i class="fas fa-user-md"></i>
-          </div>
-          <div>
-            <span>У нас лучшие типы</span>
-          </div>
+      <h2 class="text-center">Почему нас выбирают</h2>
+      <div class="d-flex justify-content-between flex-wrap">
+        <div class="ourpros">
+          <i class="fas fa-user-md"></i>
+          <span>В нашей клинике работают лучшие специалисты с большим опытом работы</span>
         </div>
-        <div class="seconddifference">
-          Второй прикол
+        <div class="ourpros">
+          <i class="fas fa-microscope"></i>
+          <span>Мы используем только первоклассное медицинское оборудование для лучшего результата</span>
         </div>
-        <div class="thirddifference">
-          Третий прикол
+        <div class="ourpros">
+          <i class="fas fa-hospital"></i>
+          <span>Мы открыты<br>
+            с 8:00 до 20:00<br>
+            7 дней в неделю
+          </span>
         </div>
       </div>
     </div>
@@ -80,7 +84,7 @@
         {% for service in popular_services %}
           <div class="one-service">
             <a href="#">
-              <img src="{% static 'images/mainbg.png' %}" alt="service_img">
+              <img src="{{ service.image.url|resize:'320x320,C' }}" alt="service_img">
               <p><span>{{ service.name }}</span></p>
             </a>
           </div>

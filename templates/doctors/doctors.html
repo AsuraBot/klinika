@@ -23,7 +23,7 @@
                         {% for doctor in doctormain.doctors.all %}
                             <div class="col-md-3">
                                 <div class="card">
-                                    <a href='{{ doctor.get_absolute_url }}'><img class="card-img-top" src="{{doctor.image|resize:'300x400,C'}}"></a>
+                                    <a href='{{ doctor.get_absolute_url }}'><img class="card-img-top" src="{{doctor.image.url|resize:'300x400,C'}}"></a>
                                     <div class="card-body">
                                         <div class="text-center">
                                             <a href='{{ doctor.get_absolute_url }}' class="card-link">

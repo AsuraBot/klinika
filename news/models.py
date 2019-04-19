@@ -13,7 +13,7 @@ class Novost(models.Model):
 
     def get_picture_url(self, filename):
         ext = filename.split('.')[-1]
-        filename = '%s.%s' % (self.title, ext)
+        filename = '%s.%s' % (self.id, ext)
         return 'images/news/%s' % filename
 
     image = models.ImageField(upload_to=get_picture_url, verbose_name='Фотография')

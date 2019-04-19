@@ -13,7 +13,7 @@ def index(request):
         'popular_services': popular_services,
         'last_news': last_news,
     }
-    return render(request, 'landing/index.html',context)
+    return render(request, 'index.html',context)
 
  
 def e_handler404(request):

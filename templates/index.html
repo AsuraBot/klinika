@@ -1,0 +1,124 @@
+{% load static %}
+
+{% load imagefit %}
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    {% include 'head.html' %}
+    <title>
+        Главная - Поликлиника УЗИ 4д
+    </title>
+  </head>
+  <body>
+    {% include 'scripts.html' %}
+
+    <div class="wraper">
+    {% include 'header.html' %}
+    
+    <div class="carousel" id="index-carousel">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+            <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <a href='#'>
+                    <div class="gradient"></div>
+                    <img class="d-block" src="https://via.placeholder.com/2100x276">
+                    <div class="carousel-caption d-none d-md-block">
+                    <h3>Текст 1</h3>
+                    <p>шо то там</p>
+                    </div>
+                </a>
+                </div>
+                <div class="carousel-item">
+                <a href='#'>
+                    <div class="gradient"></div>
+                    <img class="d-block" src="{% static 'images/mainbg.png' %}">
+                    <div class="carousel-caption d-none d-md-block">
+                    <h5>.L.</h5>
+                    <p>.L1.</p>
+                    </div>
+                </a>
+                </div>
+                <div class="carousel-item">
+                <a href='#'>
+                    <div class="gradient"></div>
+                    <img class="d-block" src="{% static 'images/mainbg.png' %}">
+                    <div class="carousel-caption d-none d-md-block">
+                    <h5>.K.</h5>
+                    <p>.K2.</p>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    
+    </div> <!-- wraper -->
+    
+        <div class="differences"> <!-- Чем мы отличаемся от других --> 
+        <div class="container">
+            <h2 class="text-center">Почему нас выбирают</h2>
+            <div class="d-flex justify-content-between flex-wrap">
+            <div class="ourpros">
+                <i class="fas fa-user-md"></i>
+                <span>В нашей клинике работают лучшие специалисты с большим опытом работы</span>
+            </div>
+            <div class="ourpros">
+                <i class="fas fa-microscope"></i>
+                <span>Мы используем только первоклассное медицинское оборудование для лучшего результата</span>
+            </div>
+            <div class="ourpros">
+                <i class="fas fa-hospital"></i>
+                <span>Мы открыты<br>
+                с 8:00 до 20:00<br>
+                7 дней в неделю
+                </span>
+            </div>
+            </div>
+        </div>
+        </div>
+    
+        <div class="index-services">  <!-- Популярные типы услуг -->
+        <div class="container">
+            <h2 class="text-center">Услуги</h2>
+            <p class="text-center pt-2">мб убрать это вообще</p>
+            <div class="d-flex justify-content-around flex-wrap">
+            {% for service in popular_services %}
+                <div class="one-service">
+                <a href="#">
+                    <img src="{{ service.image.url|resize:'320x320,C' }}" alt="service_img">
+                    <p><span>{{ service.name }}</span></p>
+                </a>
+                </div>
+            {% endfor %}
+            </div>
+            <a href="{% url 'services' %}" class="btn btn-primary">Все услуги</a>
+        </div>
+        </div>
+    
+        <div class="index-news">     <!-- Название новостей не показывает -->
+        <div class="container">
+            <h2 class="text-center">Новости</h2>
+            <p class="text-center pt-2">мб убрать это вообще</p>
+            <div class="d-flex justify-content-around flex-wrap">
+            {% for new in last_news %}
+                <div class="one-new">
+                <a href="#">
+                    <img src="{% static 'images/mainbg.png' %}" alt="service_img">
+                    <p><span>{{ new.name }}</span></p>
+                </a>
+                </div>
+            {% endfor %}
+            </div>
+            <a href="{% url 'news' %}" class="btn btn-primary">Все новости</a>
+        </div>
+        </div>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

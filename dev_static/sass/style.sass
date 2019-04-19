@@ -1,0 +1,462 @@
+@font-face
+  font-family: 'Ubuntu'
+  font-style: normal
+  font-weight: 400
+  src: url('../fonts/Ubuntu-Regular.ttf') format("truetype")
+
+
+@font-face
+  font-family: 'Ubuntu'
+  font-style: normal
+  font-weight: bold
+  src: url('../fonts/Ubuntu-Bold.ttf') format("truetype")
+
+$maincolor: #2A93C9
+
+body
+  font-family: 'Ubuntu', sans-serif
+  font-size: 1rem
+  background-color: #F1F3F9
+
+.form-control
+  border-radius: 0%
+  border: 1px solid #fff
+
+.btn
+  border-radius: 0%
+
+.wraper
+  position: relative
+  height: 700px
+  width: 100%
+  background-color: rgb(57, 125, 156)
+
+/********** HEADER *********
+
+header
+  position: absolute
+  top: 0
+  z-index: 99999
+  width: 100%
+  height: 200px
+  .top-header
+    padding: 30px 50px
+
+.top-header .brand a
+  padding-left: 10px
+  color: white
+  font-size: 2rem
+  &:hover
+    text-decoration: none
+
+.topheaderinfo span
+  color: white
+  padding-left: 20px
+  font-size: 1.1rem
+
+.navbar-dark .navbar-nav .nav-link
+  color: #fff
+  &:hover, &:focus
+    color: white
+    background-color: #1D86BC
+
+header .navbar
+  flex: 1
+  padding: 0 20px 0 0
+  box-shadow: 0px 0px 35px 2px rgba(0, 0, 0, 0.4)
+  -webkit-box-shadow: 0px 0px 35px 2px rgba(0, 0, 0, 0.4)
+  -moz-box-shadow: 0px 0px 35px 2px rgba(0, 0, 0, 0.4)
+  border-radius: 8px
+  #navbarSupportedContent > ul
+    width: 100%
+    display: flex
+
+#navbarSupportedContent .nav-item
+  text-transform: uppercase
+  font-weight: bold
+
+header .navbar .nav-item .nav-link
+  padding: 20px 15px
+
+.nav-search span i
+  color: white
+
+.dropdown-menu
+  border-radius: 0
+  margin: 0
+  box-shadow: 0px 0px 35px 2px rgba(0, 0, 0, 0.4)
+  -webkit-box-shadow: 0px 0px 35px 2px rgba(0, 0, 0, 0.4)
+  -moz-box-shadow: 0px 0px 35px 2px rgba(0, 0, 0, 0.4)
+  a
+    color: #1D86BC
+    font-weight: normal
+    text-transform: none
+
+.differences
+  .ourpros
+    width: 25%
+  h2
+    margin: 75px 0
+    font-size: 2rem
+    text-transform: uppercase
+    text-align: center
+  .ourpros
+    i
+      text-align: center
+      border: 2px solid #E5E5E5
+      width: 150px
+      height: 150px
+      border-radius: 50%
+      color: $maincolor
+      font-size: 6rem
+      line-height: 135px
+      display: block
+      margin: 0 auto
+    span
+      padding-top: 15px
+      display: block
+      text-align: center
+
+/********** FOOTER *********
+
+footer
+  background-color: $maincolor
+  #contacts
+    color: #fff
+    font-size: 2rem
+    text-transform: uppercase
+    text-align: center
+    margin-bottom: 50px
+    font-weight: bold
+    margin-top: 75px
+    padding-top: 50px
+  .top-footer
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25)
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25)
+    -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05)
+    margin-bottom: 50px
+    background-color: #fff
+    ul
+      list-style-type: none
+  .adresses
+    padding: 30px
+  .map
+    padding: 0
+  .adresses ul li
+    position: relative
+    font-weight: bold
+    font-size: 1.2rem
+    margin-top: 20px
+    i
+      position: absolute
+      left: 0
+      top: 2px
+      color: $maincolor
+    span
+      display: block
+      padding-left: 25px
+  .bottom-footer
+    background-color: #fff
+    padding: 20px 0 0 0
+    .text-center:first-child
+      font-size: 2rem
+
+/********** INDEX *********
+
+#index-carousel, .gradient
+  width: 100%
+  height: 700px
+
+#index-carousel
+  img
+    width: 100%
+    height: 700px
+  position: absolute
+  top: 0
+
+.gradient
+  position: absolute
+  top: 0
+  z-index: 3333
+  background: linear-gradient(180deg, rgba(57, 125, 156, 0.7) 0%, rgba(241, 243, 249, 0.5) 100%)
+
+#index-carousel .carousel-indicators li
+  width: 10px
+  height: 10px
+  border-radius: 50%
+
+.index-services
+  padding: 60px 0
+  background-color: #f4fefc
+  .one-service
+    margin-top: 50px
+    a
+      display: block
+      position: relative
+      margin: 0 10px
+    img
+      display: block
+      width: 320px
+      height: 320px
+    a
+      p
+        position: absolute
+        width: 100%
+        bottom: 1rem
+        left: 0
+        text-align: center
+        padding-bottom: 20px
+        span
+          background-color: rgba(255, 255, 255, 0.6)
+          padding: 15px
+          font-weight: bold
+          color: $maincolor
+      &:hover p span, &:focus p span
+        color: #01C5A2
+  .btn
+    display: block
+    width: 150px
+    margin: 50px auto
+    background-color: #01C5A2
+    border-color: #01C5A2
+  h2
+    text-transform: uppercase
+    font-weight: bold
+    color: $maincolor
+  .btn
+    &:hover, &:focus
+      background-color: #01C5A2
+      border-color: #01C5A2
+      opacity: 0.7
+      outline: none
+
+.index-news
+  padding: 60px 0
+  background-color: #f4fefc
+  .one-new
+    margin-top: 50px
+    a
+      display: block
+      position: relative
+      margin: 0 10px
+    img
+      display: block
+      width: 250px
+      height: 250px
+    a
+      p
+        position: absolute
+        width: 100%
+        bottom: 1rem
+        left: 0
+        text-align: center
+        padding-bottom: 20px
+        span
+          background-color: rgba(255, 255, 255, 0.6)
+          padding: 15px
+          font-weight: bold
+          color: $maincolor
+      &:hover p span, &:focus p span
+        color: #01C5A2
+  .btn
+    display: block
+    width: 150px
+    margin: 50px auto
+    background-color: #01C5A2
+    border-color: #01C5A2
+  h2
+    text-transform: uppercase
+    font-weight: bold
+    color: $maincolor
+  .btn
+    &:hover, &:focus
+      background-color: #01C5A2
+      border-color: #01C5A2
+      opacity: 0.7
+      outline: none
+
+/********** VACANCY *********
+
+.vacancy
+  h3
+    font-size: 1.8rem
+    padding-bottom: 20px
+    margin-top: 35px
+  span
+    font-size: 1.3rem
+  hr
+    display: block
+    border-style: solid
+    border-color: black
+    border-width: 0 0 2px 0
+
+.vacancyinfo:last-child hr
+  display: none
+
+/********** SERVICES *********
+
+.container #accordion
+  margin-top: 75px
+  border-top: 1px solid $maincolor
+
+h1
+  margin-top: 275px
+  font-size: 2rem
+  font-weight: bold
+  text-transform: uppercase
+  text-align: center
+
+#accordion
+  .card
+    border-radius: 0
+    border: none
+    .card-header
+      background-color: white
+      border-bottom: 1px solid $maincolor
+      border-top: none
+      border-right: none
+      border-left: none
+      box-sizing: border-box
+    .list-group
+      border-bottom: 1px solid $maincolor
+  .btn
+    font-size: 1rem
+    &:hover
+      color: #01C5A2
+      font-weight: bold
+
+.card-body
+  font-size: 1.1rem
+
+#accordion .list-group a
+  &:hover, &:focus
+    background-color: $maincolor
+    color: #fff
+
+/********** SERVICES *********
+
+.container .servicedetailorder
+  background-color: $maincolor
+  color: #fff
+  &:hover, &:focus
+    color: #01C5A2
+
+/********** NEWS *********
+
+.news
+  h1
+    margin-bottom: 75px
+  .col-md-5
+    height: 300px
+    padding: 0
+  .col-md-7
+    position: relative
+    padding: 15px 25px 15px 30px
+
+.newsinfo
+  margin-bottom: 50px
+  box-shadow: 9px 10px 37px 1px rgba(0, 0, 0, 0.11)
+  -webkit-box-shadow: 9px 10px 37px 1px rgba(0, 0, 0, 0.11)
+  -moz-box-shadow: 9px 10px 37px 1px rgba(0, 0, 0, 0.11)
+  .date
+    padding-top: 10px
+    color: #aaa
+    font-size: 0.9rem
+  h3
+    padding: 0
+    font-size: 1.3rem
+    font-weight: bold
+  .newsimage
+    background-size: cover
+  .btn-primary
+    background-color: $maincolor
+  .desc
+    margin-bottom: 20px
+
+/********** DOCTORS *********
+
+.doctors .card-body .card
+  margin-top: 30px
+  box-shadow: 9px 10px 37px 1px rgba(0, 0, 0, 0.11)
+  -webkit-box-shadow: 9px 10px 37px 1px rgba(0, 0, 0, 0.11)
+  -moz-box-shadow: 9px 10px 37px 1px rgba(0, 0, 0, 0.11)
+  a
+    &:hover, &:focus
+      color: #01C5A2
+
+/********** BOOKNOW *********
+
+.calendar
+  h1
+    margin-bottom: 50px
+  form
+    input
+      border: 1px solid $maincolor
+      margin-bottom: 10px
+    select
+      border: 1px solid $maincolor
+      border-radius: 0
+      margin-bottom: 10px
+
+.breadcrumbmodify
+  list-style-type: none
+  padding: 0
+  li
+    text-align: center
+    padding: 0 10px
+
+#myTab li
+  margin-bottom: 20px
+
+#myTabContent .btn
+  margin-top: 25px
+  color: #fff
+  background-color: $maincolor
+  border-color: $maincolor
+
+.nav-tabs
+  .nav-link
+    border-top-left-radius: 0
+    border-top-right-radius: 0
+  .nav-item.show .nav-link, .nav-link.active
+    color: white
+    background-color: $maincolor
+
+/* AUTH
+
+.form-horizontal
+  background: #fff
+  padding-bottom: 75px
+  h1
+    margin-bottom: 35px
+  .form-group
+    padding: 0 40px
+    position: relative
+  .form-control
+    background: #f0f0f0
+    padding: 0 20px 0 45px
+    height: 40px
+    &:focus
+      background: #e0e0e0
+      box-shadow: none
+      outline: 0 none
+      border: 1px solid $maincolor
+  .form-group i
+    /* значки
+    position: absolute
+    top: 12px
+    left: 60px
+    font-size: 17px
+    color: #c8c8c8
+    transition: all 0.5s ease 0s
+  .form-control:focus + i
+    color: $maincolor
+  .btn
+    font-size: 15px
+    color: #fff
+    background: $maincolor
+    padding: 10px 25px
+    border: none
+    text-transform: capitalize
+    &:hover, &:focus
+      color: #01C5A2
