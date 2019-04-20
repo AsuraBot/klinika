@@ -4,11 +4,22 @@
     <div class="top-header container">
         <div class="row justify-content-between align-items-center">
             <div class="brand"><img src="{% static 'images/logo.png' %}">
-                <a href="{% url 'index' %}">Поликлиника 4д</a>
             </div>
             <div class="topheaderinfo">
-                <span>г. Пятигорск, ул. Кузнечная 26</span>
-                <span>+7 (928) 828-40-01</span>
+                <!-- <select id="cityheaderinfo">
+                    {% for city in cities %}
+                    <option value="{{ city.id }}">
+                        <span>г. {{ city.city }}, {{ city.address }} </span>
+                    </option>
+                    {% endfor %}
+                </select>
+                <select id="phoneheaderinfo">
+                    {% for city in cities %}
+                    <option value="{{ city.id }}">
+                        <span>{{ city.phone }}</span>
+                    </option>
+                    {% endfor %}
+                </select> -->
             </div>
         </div>
     </div>
