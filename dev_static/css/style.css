@@ -90,8 +90,29 @@ header .navbar .nav-item .nav-link {
   padding: 20px 15px;
 }
 
+.nav-search {
+  position: relative;
+}
+
+.nav-search .mainsearch {
+  position: absolute;
+  width: 1062px;
+  height: 64px;
+  right: 20px;
+  background-color: #2A93C9;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.5rem;
+}
+
+.nav-search .mainsearch::placeholder {
+  color: white;
+}
+
 .nav-search span i {
   color: white;
+  cursor: pointer;
 }
 
 .dropdown-menu {

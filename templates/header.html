@@ -6,20 +6,20 @@
             <div class="brand"><img src="{% static 'images/logo.png' %}">
             </div>
             <div class="topheaderinfo">
-                <!-- <select id="cityheaderinfo">
+                <select id="cityheaderinfo">
                     {% for city in cities %}
                     <option value="{{ city.id }}">
                         <span>г. {{ city.city }}, {{ city.address }} </span>
                     </option>
                     {% endfor %}
                 </select>
-                <select id="phoneheaderinfo">
+                <select disabled id="phoneheaderinfo">
                     {% for city in cities %}
                     <option value="{{ city.id }}">
                         <span>{{ city.phone }}</span>
                     </option>
                     {% endfor %}
-                </select> -->
+                </select>
             </div>
         </div>
     </div>
@@ -46,9 +46,10 @@
                     <li class="nav-item"><a class="nav-link" href="#contacts">Контакты</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'vacancys' %}">Вакансии</a></li>
                     <!-- <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Вход для персонала</a></li> -->
+                    <!-- <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Клинические исследования</a></li> -->
                 </ul>
-                <form class="form-inline nav-search">
-                    <!-- <input class="form-control mr-sm-2" type="search" placeholder="Введите услугу" aria-label="Search"> -->
+                <form class="form-inline nav-search formsearch">
+                    <input class="form-control mr-sm-2 d-none mainsearch" type="search" placeholder="Поиск..." aria-label="Search">
                     <span>
                         <i class="fa fa-search"></i>
                     </span>

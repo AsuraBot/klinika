@@ -17,7 +17,16 @@ $(document).ready(function(){
           });
         }, false);
       })();
+      
+    $('#cityheaderinfo').change(function(){
+        $("#phoneheaderinfo option[value=" + $(this).val() + "]").prop('selected', true);
+    });
 
+    $('.formsearch span').click(function(){
+        $('.mainsearch').toggleClass('d-none');
+        $('.formsearch .fa').toggleClass('fa-search');
+        $('.formsearch .fa').toggleClass('fa-times');
+    });
 
     $('.services').select2({
         placeholder: {
@@ -218,8 +227,4 @@ $(document).ready(function(){
         //2. Получить элемент, к которому необходимо добавить маску
         $("#client_phone").mask("8(999) 999-9999");
       });
-
-    // $('#cityheaderinfo').on('change',function(){
-    //     $("#phoneheaderinfo option[value=" + this.val() + "]").prop('selected', true);
-    // });
 });
