@@ -7,7 +7,7 @@
   <head>
     {% include 'head.html' %}
     <title>
-        Главная - Поликлиника УЗИ 4д
+        Главная - Поликлиника УЗИ 4Д
     </title>
   </head>
   <body>
@@ -16,7 +16,7 @@
     <div class="wraper">
     {% include 'header.html' %}
     
-    <div class="carousel" id="index-carousel">
+    <div class="carousel" id="index-carousel">  <!-- Слайдер -->
         <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
             <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -101,7 +101,7 @@
         </div>
         </div>
     
-        <div class="index-news">     <!-- Название новостей не показывает -->
+        <div class="index-news">     <!-- Новости -->
         <div class="container">
             <h2 class="text-center">Новости</h2>
             <p class="text-center pt-2">мб убрать это вообще</p>
@@ -110,7 +110,7 @@
                 <div class="one-new">
                 <a href="#">
                     <img src="{% static 'images/mainbg.png' %}" alt="service_img">
-                    <p><span>{{ new.name }}</span></p>
+                    <p><span>{{ new.title }}</span></p>
                 </a>
                 </div>
             {% endfor %}
