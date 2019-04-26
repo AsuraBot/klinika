@@ -5,7 +5,7 @@
         <div class="row justify-content-between align-items-center">
             <div class="brand"><img src="{% static 'images/logo.png' %}">
             </div>
-            <div class="topheaderinfo">
+            <div class="topheaderinfo d-flex flex-column">
                 <select id="cityheaderinfo">
                     {% for city in cities %}
                     <option value="{{ city.id }}">

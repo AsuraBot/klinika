@@ -7,7 +7,7 @@
 {% endblock title %}
 
 {% block content %}
-  <div class="carousel" id="index-carousel">
+  <!-- <div class="carousel" id="index-carousel">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -49,7 +49,7 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-  </div>
+  </div> -->
 
 </div> <!-- wraper -->
 
@@ -94,7 +94,7 @@
     </div>
   </div>
 
-  <div class="index-news">     <!-- Название новостей не показывает -->
+  <div class="index-news">     <!-- Новости -->
     <div class="container">
       <h2 class="text-center">Новости</h2>
       <p class="text-center pt-2">мб убрать это вообще</p>
@@ -103,7 +103,7 @@
           <div class="one-new">
             <a href="#">
               <img src="{% static 'images/mainbg.png' %}" alt="service_img">
-              <p><span>{{ new.name }}</span></p>
+              <p><span>{{ new.title }}</span></p>
             </a>
           </div>
         {% endfor %}
