@@ -15,7 +15,7 @@ class ServiceAdmin(admin.ModelAdmin):
 
 class ServiceInline(admin.TabularInline):
     model = Service
-    readonly_fields = ['name', 'price', 'doctors', 'ref_doc', 'ref_napr', 'ref_agent', 'is_active']
+    readonly_fields = ['name', 'price', 'doctors', 'ref_doc', 'ref_napr', 'ref_agent', 'counter', 'is_active']
     can_delete = False
     max_num = 0
 

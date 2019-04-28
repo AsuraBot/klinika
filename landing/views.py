@@ -2,16 +2,19 @@ from django.shortcuts import render, render_to_response
 from django.template import RequestContext
 from services.models import ServiceMain
 from news.models import Novost
+from peoples.models import Doctor
 
 # Create your views here.
 
 def index(request):
-    popular_services = ServiceMain.objects.all()[:4]
+    popular_services = ServiceMain.objects.all().order_by('-counter')[:6]
     last_news = Novost.objects.filter(is_active=True)[:4]
+    index_doctors  = Doctor.objects.all()[:5]
 
     context = {
         'popular_services': popular_services,
         'last_news': last_news,
+        'index_doctors': index_doctors,
     }
     return render(request, 'index.html',context)
 

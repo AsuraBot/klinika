@@ -83,28 +83,53 @@
         </div>
         </div>
     
+        <div class="paralax">  <!-- Paralax -->
+            <div class="container paralax-text">
+                <p>Наша клиника предлагает широкий спектр услуг</p>
+                <a href="{% url 'booknow' %}" class="btn paralaxbtn">Записаться на прием</a>
+            </div>
+        </div>
+
         <div class="index-services">  <!-- Популярные типы услуг -->
         <div class="container">
-            <h2 class="text-center">Услуги</h2>
-            <p class="text-center pt-2">мб убрать это вообще</p>
+            <h2 class="text-center">Популярные услуги</h2>
             <div class="d-flex justify-content-around flex-wrap">
             {% for service in popular_services %}
                 <div class="one-service">
                 <a href="#">
                     <img src="{{ service.image.url|resize:'320x320,C' }}" alt="service_img">
-                    <p><span>{{ service.name }}</span></p>
+                    <p><i class="fas fa-arrow-right"></i> {{ service.name }}</p>
                 </a>
                 </div>
             {% endfor %}
             </div>
-            <a href="{% url 'services' %}" class="btn btn-primary">Все услуги</a>
         </div>
         </div>
     
+        <div class="index-doctors d-flex">
+            {% for doctor in index_doctors %}
+                <div class="index-doctor">
+                    <img src="{{ doctor.image.url|resize:'380x410,C' }}">
+                    <div>
+                        <div>
+                            <h4>{{ doctor.name }}</h4>
+                            <p>
+                            {% for doctormain in doctor.doctor_main.all %}
+                                <span>{{ doctormain.name }}</span>
+                            {% endfor %}
+                            </p>
+                        </div>
+                        <a href="#">
+                            Перейти в профиль
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
         <div class="index-news">     <!-- Новости -->
         <div class="container">
             <h2 class="text-center">Новости</h2>
-            <p class="text-center pt-2">мб убрать это вообще</p>
             <div class="d-flex justify-content-around flex-wrap">
             {% for new in last_news %}
                 <div class="one-new">

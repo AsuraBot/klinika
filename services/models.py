@@ -8,9 +8,10 @@ from peoples.models import Doctor
 
 class ServiceMain(models.Model):
     name = models.CharField(max_length=250, verbose_name='Название услуги')
-    ref_doc = models.PositiveSmallIntegerField(verbose_name='Процент специалиста',default=0,validators=[MaxValueValidator(100)])
-    ref_napr = models.PositiveSmallIntegerField(verbose_name='Процент направившего',default=0,validators=[MaxValueValidator(100)])
-    ref_agent = models.PositiveSmallIntegerField(verbose_name='Процент агента',default=0,validators=[MaxValueValidator(100)])
+    ref_doc = models.PositiveSmallIntegerField(verbose_name='Процент специалиста', default=0, validators=[MaxValueValidator(100)])
+    ref_napr = models.PositiveSmallIntegerField(verbose_name='Процент направившего', default=0, validators=[MaxValueValidator(100)])
+    ref_agent = models.PositiveSmallIntegerField(verbose_name='Процент агента', default=0, validators=[MaxValueValidator(100)])
+    counter = models.PositiveIntegerField(verbose_name='Популярность', default=0)
 
     def get_picture_url(self, filename):
         ext = filename.split('.')[-1]
@@ -36,6 +37,7 @@ class Service(models.Model):
     ref_doc = models.PositiveSmallIntegerField(verbose_name='Процент специалиста',default=0,validators=[MaxValueValidator(100)])
     ref_napr = models.PositiveSmallIntegerField(verbose_name='Процент направившего',default=0,validators=[MaxValueValidator(100)])
     ref_agent = models.PositiveSmallIntegerField(verbose_name='Процент агента',default=0,validators=[MaxValueValidator(100)])
+    counter = models.PositiveIntegerField(verbose_name='Популярность', default=0)
     is_active = models.BooleanField(verbose_name='Активна', default=True, help_text='Предоставляется ли услуга')
 
     class Meta:
