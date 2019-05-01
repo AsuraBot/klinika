@@ -182,6 +182,7 @@ header .navbar .nav-item .nav-link {
   -webkit-box-shadow: 0px 0px 35px 2px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 0px 35px 2px rgba(0, 0, 0, 0.4);
 }
+
 .dropdown-menu a {
   color: #1D86BC;
   font-weight: normal;
@@ -191,12 +192,14 @@ header .navbar .nav-item .nav-link {
 .differences .ourpros {
   width: 25%;
 }
+
 .differences h2 {
   margin: 75px 0;
   font-size: 2rem;
   text-transform: uppercase;
   text-align: center;
 }
+
 .differences .ourpros i {
   text-align: center;
   border: 2px solid #E5E5E5;
@@ -209,6 +212,7 @@ header .navbar .nav-item .nav-link {
   display: block;
   margin: 0 auto;
 }
+
 .differences .ourpros span {
   padding-top: 15px;
   display: block;
@@ -216,55 +220,17 @@ header .navbar .nav-item .nav-link {
 }
 
 /********** FOOTER ********* */
-footer {
-  background-color: #2A93C9;
-}
-footer #contacts {
-  color: #fff;
-  font-size: 2rem;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 50px;
-  font-weight: bold;
-  margin-top: 75px;
-  padding-top: 50px;
-}
+
 footer .top-footer {
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  margin-bottom: 50px;
-  background-color: #fff;
+  width: 100%;
+  margin-top: 75px;
 }
-footer .top-footer ul {
-  list-style-type: none;
-}
-footer .adresses {
-  padding: 30px;
-}
-footer .map {
-  padding: 0;
-}
-footer .adresses ul li {
-  position: relative;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-top: 20px;
-}
-footer .adresses ul li i {
-  position: absolute;
-  left: 0;
-  top: 2px;
-  color: #2A93C9;
-}
-footer .adresses ul li span {
-  display: block;
-  padding-left: 25px;
-}
+
 footer .bottom-footer {
   background-color: #fff;
   padding: 20px 0 0 0;
 }
+
 footer .bottom-footer .text-center:first-child {
   font-size: 2rem;
 }
