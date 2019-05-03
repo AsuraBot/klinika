@@ -56,7 +56,7 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
     
     </div> <!-- wraper -->
     
@@ -128,21 +128,25 @@
         </div>
 
         <div class="index-news">     <!-- Новости -->
-        <div class="container">
-            <h2 class="text-center">Новости</h2>
-            <div class="d-flex justify-content-around flex-wrap">
-            {% for new in last_news %}
-                <div class="one-new">
-                <a href="#">
-                    <img src="{% static 'images/mainbg.png' %}" alt="service_img">
-                    <p><span>{{ new.title }}</span></p>
-                </a>
+            <div class="container">
+                <h2 class="text-center">Новости</h2>
+                <div class="d-flex justify-content-around flex-wrap">
+                {% for new in last_news %}
+                    <div class="one-new">
+                    <a href="#">
+                        <img src="{% static 'images/mainbg.png' %}" alt="service_img">
+                        <p><span>{{ new.title }}</span></p>
+                    </a>
+                    </div>
+                {% endfor %}
                 </div>
-            {% endfor %}
+                <a href="{% url 'news' %}" class="btn btn-primary">Все новости</a>
             </div>
-            <a href="{% url 'news' %}" class="btn btn-primary">Все новости</a>
         </div>
-        </div>
+
+    <div class="top-footer">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Af3d537afc0f483c5de02b2a195dac2f0a67b4a9687a7df70287893f0ba53c7f2&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"></script>
+    </div>
 
     {% include 'footer.html' %}
   </body>

@@ -26,7 +26,29 @@ def doctorfilter(request):
 
     service = Service.objects.get(id=service_id)
     doctors = Doctor.objects.filter(services__in=[service])
+
+    workdates = []
+
+    for doctor in doctors:
+        for workdate in doctor.workdates.all():
+            workdates.append(workdate)
     
+    print(workdates)
+
+    doctors = []
+
+    for workdate in workdates:
+        if workdate.date > datetime.now().date():
+            for worktime in workdate.worktimes.all():
+                doctors.append(workdate.doctor)
+
+        if workdate.date == datetime.now().date():
+            for worktime in workdate.worktimes.all():
+                if worktime.time >= datetime.now().time():
+                    doctors.append(workdate.doctor)
+
+    doctors = set(doctors)
+
     doctors_id = [doctor.id for doctor in doctors]
     doctors_name = [doctor.name for doctor in doctors]
 

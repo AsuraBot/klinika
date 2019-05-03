@@ -5,16 +5,23 @@
   font-weight: 400;
   src: url("../fonts/Ubuntu-Regular.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: bold;
   src: url("../fonts/Ubuntu-Bold.ttf") format("truetype");
 }
+
 body {
   font-family: "Ubuntu", sans-serif;
   font-size: 1rem;
   background-color: #F1F3F9;
+}
+
+* {
+  padding: 0;
+  margin: 0;
 }
 
 .form-control {
@@ -221,18 +228,25 @@ header .navbar .nav-item .nav-link {
 
 /********** FOOTER ********* */
 
-footer .top-footer {
+.top-footer {
   width: 100%;
   margin-top: 75px;
 }
 
 footer .bottom-footer {
-  background-color: #fff;
+  background-color: #2A93C9;
+  color: white;
   padding: 20px 0 0 0;
 }
 
 footer .bottom-footer .text-center:first-child {
   font-size: 2rem;
+  opacity: 0.5;
+}
+
+footer .bottom-footer .text-center:last-child {
+  padding-bottom: 16px;
+  margin: 0 !important;
 }
 
 /********** INDEX ********* */
