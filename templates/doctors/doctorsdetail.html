@@ -7,5 +7,8 @@
 {% block content %}
 <div class="container">
     <h1>{{doctor.name}}</h1>
+    <form action="{% url 'doctorbooknow' %}">
+            <button type="submit" class="btn servicedetailorder" name="doctor_id" value="{{ doctor.id }}">Записаться на приём</button>
+    </form>
 </div>
 {% endblock content %}

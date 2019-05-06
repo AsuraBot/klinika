@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Записаться на приём
+{% endblock title %}
+
+{% block content %}
+<div class="calendar">
+    <div class="container">
+        <h1>Записаться на приём</h1>
+            <nav class="d-none d-sm-none d-md-block">  <!-- Большой экран -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist"> <!-- Кнопки навигации -->
+                    <li class="nav-item">
+                        <a class="nav-link active" id="doctor-tab" data-toggle="tab" href="#doctor" role="tab" aria-controls="doctor" aria-selected="false">Выберите врача</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" id="service-tab" data-toggle="tab" href="#service" role="tab" aria-controls="service" aria-selected="true">Выберите услугу</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" id="city-tab" data-toggle="tab" href="#city" role="tab" aria-controls="city" aria-selected="false">Выберите город</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" id="datetime-tab" data-toggle="tab" href="#datetime" role="tab" aria-controls="datetime" aria-selected="false">Выберите дату и время</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" id="enterinfo-tab" data-toggle="tab" href="#enterinfo" role="tab" aria-controls="enterinfo" aria-selected="false">Введите свои данные</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade" id="service" role="tabpanel" aria-labelledby="service-tab">
+                        <form action="{% url 'cityfilter' %}" method="post" id="orderform">
+                            {% csrf_token %}
+                            <select class="services form-control" style="width:100%" name="services">
+                                <option value="-1"></option>
+                            </select>
+                            <button type="submit" class="btn doctorservicebtn d-none">Далее</button>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade show active" id="doctor" role="tabpanel" aria-labelledby="doctor-tab">
+                        <form action="{% url 'servicefilter' %}" method="post" id="doctorform">
+                            {% csrf_token %}
+                            <select class="orderdoctors form-control" style="width:100%" name="doctors">
+                                <option value="-1"></option>
+                                {% for doctor in doctors %}
+                                    {% if doctor.id == doctor_id %}
+                                    <option selected value="{{ doctor.id }}">{{ doctor.name }}</option>
+                                    {% else %}
+                                    <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            <button type="submit" class="btn doctordoctorbtn">Далее</button>
+                            <script>
+                                if ($('.orderdoctors').val() != -1){
+                                    $('.doctorbtn').removeClass('d-none')
+                                }
+                            </script>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="city" role="tabpanel" aria-labelledby="city-tab">
+                        <form action="{% url 'datetimefilter' %}" method="post" id="cityform">
+                            {% csrf_token %}
+                            <select class="ordercities form-control" style="width:100%" name="cities">
+                                <option value="-1"></option>
+                            </select>
+                            <button type="submit" class="btn citybtn">Далее</button> 
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="datetime" role="tabpanel" aria-labelledby="datetime-tab">
+                        <input type="text" class="form-control" id="datetimepicker">
+                        <button class="btn d-none datetimebtn">Далее</button>
+                    </div>
+                    <div class="tab-pane fade" id="enterinfo" role="tabpanel" aria-labelledby="enterinfo-tab">
+                        <form class="needs-validation" novalidate action="{% url 'ordercreate' %}" id="enterinfoform" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" class="form-control" required placeholder="Ваше имя" id="client_firstname">
+                                <div class="invalid-feedback">Обязательно для заполнения</div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" required placeholder="Ваша фамилия" id="client_lastname">
+                                <div class="invalid-feedback">Обязательно для заполнения</div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Ваше отчество (если есть)" id="client_surname">
+                            </div>  
+                            <div class="form-group">
+                                <input type="date" class="form-control" required placeholder="Ваша дата рождения" id="client_dob">
+                                <div class="invalid-feedback">Обязательно для заполнения</div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" required placeholder="Ваш контактный телефон" id="client_phone">
+                                <div class="invalid-feedback">Обязательно для заполнения</div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Ваш адрес (необязательно)" id="client_address">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Ваша электронная почта (необязательно)" id="client_mail">
+                            </div>
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                <label class="custom-control-label" for="customControlValidation1">Соглашение о передаче персональных данных <br>
+                                    Нажимая кнопку "Записаться на прием" я подтверждаю, что в соответствии с Федеральным Законом Российской Федерации от 27 июля 2006 г. №152-ФЗ «О персональных данных» даю согласие на обработку своих ПДн, в т.ч. сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу, обезличивание, блокирование, удаление, уничтожение, содержащихся в регистрационной форме, владельцу портала и сотрудникам регистратуры ЛПУ, на прием в которое я произвожу запись.</label>
+                                <div class="invalid-feedback">Вы не приняли соглашение о передаче персональных данных</div>
+                            </div>
+                            <button type="submit" class="btn enterinfobtn">Записаться на приём</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+    </div>
+</div>
+{% endblock content %}

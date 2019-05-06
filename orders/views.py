@@ -11,14 +11,30 @@ from orders.models import ServiceInOrder, AnalysisInOrder, Order
 
 def booknow(request):
     mainservices = ServiceMain.objects.all()
-    doctors = Doctor.objects.all()
+    # doctors = Doctor.objects.all()
+
+    service_id = request.GET.get('service_id', '-1')
 
     context = {
         'mainservices' : mainservices,
-        'doctors' : doctors,
+        # 'doctors' : doctors,
+        'service_id' : int(service_id),
     }
 
     return render(request, 'orders/booknow.html', context)
+
+
+def doctorbooknow(request):
+    doctors = Doctor.objects.all()
+
+    doctor_id = request.GET.get('doctor_id', '-1')
+
+    context = {
+        'doctors' : doctors,
+        'doctor_id' : int(doctor_id),
+    }
+
+    return render(request, 'orders/doctorbooknow.html', context)
 
 
 def doctorfilter(request):
@@ -33,8 +49,6 @@ def doctorfilter(request):
         for workdate in doctor.workdates.all():
             workdates.append(workdate)
     
-    print(workdates)
-
     doctors = []
 
     for workdate in workdates:
@@ -64,13 +78,25 @@ def cityfilter(request):
     doctor_id = int(request.POST.get('doctor_id'))
 
     doctor = Doctor.objects.get(id=doctor_id)
-    workdates = WorkDate.objects.filter(doctor__in=[doctor])
-    
-    cities_name = [workdate.workcity.city for workdate in workdates]
-    cities_id = [workdate.workcity.id for workdate in workdates]
+    doctorwork = WorkDate.objects.filter(doctor__in=[doctor])
 
-    cities_name = list(set(cities_name))
-    cities_id = list(set(cities_id))
+    cities_name = []
+    cities_id = []
+
+    for workdate in doctorwork:
+        if workdate.date > datetime.now().date():
+            if workdate.workcity.city not in cities_name:
+                cities_name.append(workdate.workcity.city)
+            if workdate.workcity.id not in cities_id:
+                cities_id.append(workdate.workcity.id)
+
+        if workdate.date == datetime.now().date():
+            for worktime in workdate.worktimes.all():
+                if worktime.time >= datetime.now().time():
+                    if workdate.workcity.city not in cities_name:
+                        cities_name.append(workdate.workcity.city)
+                    if workdate.workcity.id not in cities_id:
+                        cities_id.append(workdate.workcity.id)
 
     context = {
         'cities_name': cities_name,
@@ -154,3 +180,19 @@ def ordercreate(request):
     }
 
     return JsonResponse(context) 
+
+def servicefilter(request):
+    doctor_id = request.POST.get('doctor_id')
+
+    doctor = Doctor.objects.get(id=int(doctor_id))
+    services = Service.objects.filter(doctors__in=[doctor], is_active=True)
+
+    services_id = [service.id for service in services]
+    services_name = [service.name for service in services]
+
+    context = {
+        'services_id' : services_id,
+        'services_name' : services_name,
+    }
+
+    return JsonResponse(context)

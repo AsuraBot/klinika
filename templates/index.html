@@ -26,8 +26,8 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                 <a href='#'>
-                    <div class="gradient"></div>
-                    <img class="d-block" src="https://via.placeholder.com/2100x276">
+                    <!-- <div class="gradient"></div> -->
+                    <img class="d-block" src="{% static 'images/slide-01.jpg' %}">
                     <div class="carousel-caption d-none d-md-block">
                     <h3>Текст 1</h3>
                     <p>шо то там</p>
@@ -36,8 +36,8 @@
                 </div>
                 <div class="carousel-item">
                 <a href='#'>
-                    <div class="gradient"></div>
-                    <img class="d-block" src="{% static 'images/mainbg.png' %}">
+                    <!-- <div class="gradient"></div> -->
+                    <img class="d-block" src="{% static 'images/slide-02.jpg' %}">
                     <div class="carousel-caption d-none d-md-block">
                     <h5>.L.</h5>
                     <p>.L1.</p>
@@ -46,8 +46,8 @@
                 </div>
                 <div class="carousel-item">
                 <a href='#'>
-                    <div class="gradient"></div>
-                    <img class="d-block" src="{% static 'images/mainbg.png' %}">
+                    <!-- <div class="gradient"></div> -->
+                    <img class="d-block" src="{% static 'images/slide-03.jpg' %}">
                     <div class="carousel-caption d-none d-md-block">
                     <h5>.K.</h5>
                     <p>.K2.</p>
@@ -106,7 +106,7 @@
         </div>
         </div>
     
-        <div class="index-doctors d-flex">
+        <div class="index-doctors d-flex">   <!-- Врачи -->
             {% for doctor in index_doctors %}
                 <div class="index-doctor">
                     <img src="{{ doctor.image.url|resize:'380x410,C' }}">
@@ -132,15 +132,17 @@
                 <h2 class="text-center">Новости</h2>
                 <div class="d-flex justify-content-around flex-wrap">
                 {% for new in last_news %}
-                    <div class="one-new">
-                    <a href="#">
-                        <img src="{% static 'images/mainbg.png' %}" alt="service_img">
-                        <p><span>{{ new.title }}</span></p>
-                    </a>
-                    </div>
+                    <div class="card mb-3">
+                        <a href="{{ new.get_absolute_url }}"><img class="card-img-top" src="{{ new.image.url|resize:'370x250,C' }}" alt="news_img"><a>
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{{ new.get_absolute_url }}">{{ new.title }}</a></h5>
+                            <p class="card-text"><small class="text-muted">{{ new.date }}</small></p>
+                            <p class="card-text">{{ new.text|striptags|truncatechars:150 }}</p>
+                        </div>
+                     </div>
                 {% endfor %}
                 </div>
-                <a href="{% url 'news' %}" class="btn btn-primary">Все новости</a>
+                <div class="index-news-btn"><a href="{% url 'news' %}" class="btn btn-primary">Все новости</a></div>
             </div>
         </div>
 

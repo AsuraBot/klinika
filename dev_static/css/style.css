@@ -450,48 +450,59 @@ footer .bottom-footer .text-center:last-child {
   padding: 60px 0;
 }
 
-.index-news .one-new {
+.index-news .card {
+  border: none;
+  background-color: transparent;
   margin-top: 50px;
+  width: calc(100%/3.5);
 }
 
-.index-news .one-new a {
+.index-news .card a {
   display: block;
-  position: relative;
-  margin: 0 10px;
+  overflow: hidden;
 }
 
-.index-news .one-new img {
-  display: block;
-  width: 250px;
-  height: 250px;
+.index-news .card-body {
+  padding: 20px 0;
+  font-size: 1rem;
 }
 
-.index-news .one-new a p {
-  position: absolute;
-  width: 100%;
-  bottom: 1rem;
-  left: 0;
-  text-align: center;
-  padding-bottom: 20px;
+.index-news .card-title a {
+  color: black;
 }
 
-.index-news .one-new a p span {
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 15px;
-  font-weight: bold;
+.index-news .card-title a:hover {
+  text-decoration: none;
   color: #2A93C9;
 }
 
-.index-news .one-new a:hover p span, .index-news .one-new a:focus p span {
-  color: #01C5A2;
+.index-news .card img {
+  border-radius: 0;
+  display: block;
+  transition: all 0.5s ease-out;
+  -moz-transition: all 0.5s ease-out;
+  -o-transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
 }
 
+.index-news .card img:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  }
+
 .index-news .btn {
-  display: block;
-  width: 150px;
-  margin: 50px auto;
-  background-color: #01C5A2;
-  border-color: #01C5A2;
+  text-transform: uppercase;
+  padding: 10px 40px;
+  border-radius: 50px;
+  background-color: #2A93C9;
+  color: white;
+  transition: ease 0.3s;
+}
+
+.index-news .index-news-btn {
+  text-align: center;
 }
 
 .index-news h2 {
@@ -499,11 +510,10 @@ footer .bottom-footer .text-center:last-child {
   font-weight: normal;
 }
 
-.index-news .btn:hover, .index-news .btn:focus {
-  background-color: #01C5A2;
-  border-color: #01C5A2;
-  opacity: 0.7;
-  outline: none;
+.index-news .btn:hover, 
+.index-news .btn:focus {
+  background-color: #272727;
+  border-color: #272727;
 }
 
 /********** VACANCY ********* */

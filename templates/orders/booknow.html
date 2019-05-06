@@ -36,12 +36,21 @@
                                 {% for mainservice in mainservices %}
                                 <optgroup label="{{ mainservice.name }}">
                                     {% for service in mainservice.services.all %}
+                                        {% if service.id == service_id %}
+                                        <option selected value="{{ service.id }}">{{ service.name }}</option>
+                                        {% else %}
                                         <option value="{{ service.id }}">{{ service.name }}</option>
+                                        {% endif %}
                                     {% endfor %}
                                 </optgroup>
                                 {% endfor %}
                             </select>
                             <button type="submit" class="btn servicebtn d-none">Далее</button>
+                            <script>
+                                if ($('.services').val() != -1){
+                                    $('.servicebtn').removeClass('d-none')
+                                }
+                            </script>
                         </form>
                     </div>
                     <div class="tab-pane fade" id="doctor" role="tabpanel" aria-labelledby="doctor-tab">

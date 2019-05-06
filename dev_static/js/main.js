@@ -50,15 +50,15 @@ $(document).ready(function(){
     });
 
     $('.services').on('change', function(){
-        $('.servicebtn').removeClass('d-none')
-    });
+        $(this).siblings('.btn').removeClass('d-none')
+    }); 
 
     $('.orderdoctors').on('change', function(){
-        $('.doctorbtn').removeClass('d-none')
+        $(this).siblings('.btn').removeClass('d-none')
     });
 
     $('.ordercities').on('change', function(){
-        $('.citybtn').removeClass('d-none')
+        $(this).siblings('.btn').removeClass('d-none')
     });
 
 
@@ -108,6 +108,69 @@ $(document).ready(function(){
         $.ajax ({
             type: 'POST',
             url: $('#doctorform').attr('action'),
+            data: data,
+            success: function(data){
+                citychoice = $('.ordercities');
+                citychoice.find('option').remove();
+                citychoice.append('<option value="-1"></option>');
+                for(i=0; i < data.cities_id.length; i++){
+                    citychoice.append('<option value="'+ data.cities_id[i] + '">' + data.cities_name[i] + '</option>');
+                }
+            }
+        });
+        $('#city-tab').removeClass('disabled');
+        $('#city-tab').tab('show');
+        $('#datetime-tab').addClass('disabled');
+        $('#enterinfo-tab').addClass('disabled');
+        $('.citybtn').addClass('d-none');
+    });
+
+    $('.doctordoctorbtn').click(function(e){         //doctorbooknow doctor button 
+        e.preventDefault();
+
+        csrf_token = $('#doctorform [name="csrfmiddlewaretoken"]').val();
+        doctor_id = $('.orderdoctors').val();
+
+        data = {
+            'csrfmiddlewaretoken' : csrf_token,
+            'doctor_id' : doctor_id,
+        }
+
+        $.ajax ({
+            type: 'POST',
+            url: $('#doctorform').attr('action'),
+            data: data,
+            success: function(data){
+                servicechoice = $('.services');
+                servicechoice.find('option').remove();
+                servicechoice.append('<option value="-1"></option>');
+                for(i=0; i < data.services_id.length; i++){
+                    servicechoice.append('<option value="'+ data.services_id[i] + '">' + data.services_name[i] + '</option>');
+                }              
+            }
+        });
+        $('#service-tab').removeClass('disabled');
+        $('#service-tab').tab('show');
+        $('#city-tab').addClass('disabled');
+        $('#datetime-tab').addClass('disabled');
+        $('#enterinfo-tab').addClass('disabled');
+        $('.doctorservicebtn').addClass('d-none');
+    });
+
+    $('.doctorservicebtn').click(function(e){         //doctorbooknow service button
+        e.preventDefault();
+
+        csrf_token = $('#orderform [name="csrfmiddlewaretoken"]').val();
+        doctor_id = $('.orderdoctors').val();
+
+        data = {
+            'csrfmiddlewaretoken' : csrf_token,
+            'doctor_id' : doctor_id,
+        }
+        
+        $.ajax ({
+            type: 'POST',
+            url: $('#orderform').attr('action'),
             data: data,
             success: function(data){
                 citychoice = $('.ordercities');
