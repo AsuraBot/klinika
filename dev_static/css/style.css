@@ -675,10 +675,15 @@ h1 {
   border-color: #2A93C9;
 }
 
+.nav-tabs {
+  border: none;
+}
+
 .nav-tabs .nav-link {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
   color: white;
   background-color: #2A93C9;
@@ -689,24 +694,29 @@ h1 {
   background: #fff;
   padding-bottom: 75px;
 }
+
 .form-horizontal h1 {
   margin-bottom: 35px;
 }
+
 .form-horizontal .form-group {
   padding: 0 40px;
   position: relative;
 }
+
 .form-horizontal .form-control {
   background: #f0f0f0;
   padding: 0 20px 0 45px;
   height: 40px;
 }
+
 .form-horizontal .form-control:focus {
   background: #e0e0e0;
   box-shadow: none;
   outline: 0 none;
   border: 1px solid #2A93C9;
 }
+
 .form-horizontal .form-group i {
   /* значки */
   position: absolute;
@@ -716,9 +726,11 @@ h1 {
   color: #c8c8c8;
   transition: all 0.5s ease 0s;
 }
+
 .form-horizontal .form-control:focus + i {
   color: #2A93C9;
 }
+
 .form-horizontal .btn {
   font-size: 15px;
   color: #fff;
@@ -727,6 +739,44 @@ h1 {
   border: none;
   text-transform: capitalize;
 }
+
 .form-horizontal .btn:hover, .form-horizontal .btn:focus {
   color: #01C5A2;
+}
+
+/******* DATETIMEPICKER *******/
+
+.xdsoft_datetimepicker.xdsoft_inline {
+  width: 100% !important;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.xdsoft_datetimepicker .xdsoft_datepicker.active, .xdsoft_datetimepicker .xdsoft_timepicker.active {
+  width: 83%;
+}
+
+.xdsoft_datetimepicker .xdsoft_datepicker.active+.xdsoft_timepicker {
+  width: 15%;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar table {
+  height: 500px;
+}
+
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box {
+  height: 500px;
+  margin-top: 24px;
+}
+
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_prev, 
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_next {
+  display: none;
+}
+
+.xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box >div > div {
+  height: 50px;
+  line-height: 50px;
+  font-size: 2rem;
 }
