@@ -277,7 +277,7 @@ footer .bottom-footer .text-center:last-child {
   border-radius: 50%;
 }
 
-.paralax {
+.firstparalax {
   margin-top: 75px;
   width: 100%;
   height: 500px;
@@ -289,17 +289,17 @@ footer .bottom-footer .text-center:last-child {
   background-attachment: fixed;
 }
 
-.paralax .paralax-text {
+.firstparalax .paralax-text {
   padding-top: 150px; 
 }
 
-.paralax .paralax-text p {
+.firstparalax .paralax-text p {
   width: 600px;
   font-size: 3rem;
   color: white;
 }
 
-.paralax .paralaxbtn {
+.firstparalax .paralaxbtn {
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 50px;
@@ -308,7 +308,43 @@ footer .bottom-footer .text-center:last-child {
   transition: ease 0.3s;
 }
 
-.paralax .paralaxbtn:hover {
+.firstparalax .paralaxbtn:hover {
+  background-color: #2A93C9;
+  color: white;
+}
+
+.secondparalax {
+  margin-top: 75px;
+  width: 100%;
+  height: 500px;
+  box-sizing: border-box;
+  background-image: url('../images/second.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.secondparalax .paralax-text {
+  padding-top: 150px; 
+}
+
+.secondparalax .paralax-text p {
+  width: 600px;
+  font-size: 3rem;
+  color: white;
+}
+
+.secondparalax .paralaxbtn {
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background-color: white;
+  color: black;
+  transition: ease 0.3s;
+}
+
+.secondparalax .paralaxbtn:hover {
   background-color: #2A93C9;
   color: white;
 }

@@ -83,7 +83,7 @@
         </div>
         </div>
     
-        <div class="paralax">  <!-- Paralax -->
+        <div class="paralax firstparalax">  <!-- Paralax первый -->
             <div class="container paralax-text">
                 <p>Наша клиника предлагает широкий спектр услуг</p>
                 <a href="{% url 'booknow' %}" class="btn paralaxbtn">Записаться на прием</a>
@@ -125,6 +125,37 @@
                     </div>
                 </div>
             {% endfor %}
+        </div>
+
+        <!-- <div class="carousel" id="index-review">  
+            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+                <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="carousel-caption d-md-block">
+                        <img class="d-block" src="{% static 'images/slide-01.jpg' %}"> 
+                        <h3>Текст 1</h3>
+                        <p>шо то там</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="carousel-caption d-none d-md-block">
+                        <h5>.L.</h5>
+                        <p>.L1.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="paralax secondparalax">  <!-- Paralax второй -->
+            <div class="container paralax-text">
+                <p>Наша клиника предлагает широкий спектр услуг</p>
+                <a href="{% url 'booknow' %}" class="btn paralaxbtn">Записаться на прием</a>
+            </div>
         </div>
 
         <div class="index-news">     <!-- Новости -->
