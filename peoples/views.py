@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from django.contrib.auth.views import LoginView, LogoutView
 from dal import autocomplete
 from peoples.models import Doctor, DoctorMain
+from peoples.forms import MyAuthenticationForm
 
 # Create your views here.
 
@@ -21,9 +23,7 @@ def doctors_detail(request, doctors_id):
     }
     return render(request, 'doctors/doctorsdetail.html', context)
 
-def login(request):
-    context = {
 
-    }
-
-    return render(request, 'login/login.html')
+class MyLoginView(LoginView):
+    template_name = 'peoples/login.html'
+    form_class = MyAuthenticationForm

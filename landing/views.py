@@ -1,13 +1,13 @@
 from django.shortcuts import render, render_to_response
 from django.template import RequestContext
-from services.models import ServiceMain
+from services.models import Service
 from news.models import Novost
 from peoples.models import Doctor
 
 # Create your views here.
 
 def index(request):
-    popular_services = ServiceMain.objects.all().order_by('-counter')[:6]
+    popular_services = Service.objects.all().order_by('-counter')[:6]
     last_news = Novost.objects.filter(is_active=True)[:4]
     index_doctors  = Doctor.objects.all()[:5]
 

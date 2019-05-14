@@ -96,8 +96,8 @@
             <div class="d-flex justify-content-around flex-wrap">
             {% for service in popular_services %}
                 <div class="one-service">
-                <a href="#">
-                    <img src="{{ service.image.url|resize:'320x320,C' }}" alt="service_img">
+                <a href="{% url 'service_detail' service.id %}">
+                    <img src="{{ service.service_main.image.url|resize:'320x320,C' }}" alt="service_img">
                     <p><i class="fas fa-arrow-right"></i> {{ service.name }}</p>
                 </a>
                 </div>
@@ -127,29 +127,55 @@
             {% endfor %}
         </div>
 
-        <!-- <div class="carousel" id="index-review">  
-            <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="container review-carousel">
+            <h2 class="text-center">Отзывы наших клиентов</h2>
+            <div id="carouselViewIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselViewIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselViewIndicators" data-slide-to="1"></li>
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="carousel-caption d-md-block">
-                        <img class="d-block" src="{% static 'images/slide-01.jpg' %}"> 
-                        <h3>Текст 1</h3>
-                        <p>шо то там</p>
+                        <div class="row justify-content-between">
+                            <div class="col-md-1">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <div class="col-md-5">    
+                                <p class="reviewtext">Мне сделали колоноскопию в диагностическом центре Медины. С того момента, как я вошел в центр, меня приветствовали и относились тепло и уважительно, и это был лучший опыт.</p>
+                                <p class="reviewnamefirst">Владимир</p>
+                            </div>
+                            <div class="col-md-1">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <div class="col-md-5">
+                                <p class="reviewtext">Мне сделали колоноскопию в диагностическом центре Медины. С того момента, как я вошел в центр, меня приветствовали и относились тепло и уважительно, и это был лучший опыт.</p>
+                                <p class="reviewnamesecond">Мефодий</p>
+                            </div>
                         </div>
+                        <br><br>
                     </div>
                     <div class="carousel-item">
-                        <div class="carousel-caption d-none d-md-block">
-                        <h5>.L.</h5>
-                        <p>.L1.</p>
+                        <div class="row justify-content-between">
+                            <div class="col-md-1">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <div class="col-md-5">    
+                                <p class="reviewtext">Мне сделали колоноскопию в диагностическом центре Медины. С того момента, как я вошел в центр, меня приветствовали и относились тепло и уважительно, и это был лучший опыт.</p>
+                                <p class="reviewnamefirst">Владимир</p>
+                            </div>
+                            <div class="col-md-1">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <div class="col-md-5">
+                                <p class="reviewtext">Мне сделали колоноскопию в диагностическом центре Медины. С того момента, как я вошел в центр, меня приветствовали и относились тепло и уважительно, и это был лучший опыт.</p>
+                                <p class="reviewnamesecond">Мефодий</p>
+                            </div>
                         </div>
+                        <br><br>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <div class="paralax secondparalax">  <!-- Paralax второй -->
             <div class="container paralax-text">

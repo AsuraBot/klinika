@@ -277,6 +277,47 @@ footer .bottom-footer .text-center:last-child {
   border-radius: 50%;
 }
 
+.review-carousel h2 {
+  margin-top: 180px;
+  margin-bottom: 75px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.review-carousel .reviewtext {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #868686;
+}
+
+.review-carousel .reviewnamefirst {
+  font-weight: bold;
+  text-align: left;
+  font-size: 1.2rem;
+  color: #2A93C9;
+}
+
+.review-carousel .reviewnamesecond {
+  font-weight: bold;
+  text-align: right;
+  font-size: 1.2rem;
+  color: #2A93C9;
+}
+
+.review-carousel .col-md-1 {
+  text-align: right;
+  font-size: 1.8rem;
+  color: #2A93C9;
+}
+
+.review-carousel .carousel-indicators li {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #2A93C9;
+}
+
 .firstparalax {
   margin-top: 75px;
   width: 100%;
@@ -727,53 +768,31 @@ h1 {
 
 /* AUTH */
 .form-horizontal {
+  border-radius: 50px;
   background: #fff;
-  padding-bottom: 75px;
+  padding: 30px;
+  width: 500px;
+  margin: 75px auto;
+  box-shadow: 9px 10px 37px 1px rgba(0, 0, 0, 0.11);
+  -webkit-box-shadow: 9px 10px 37px 1px rgba(0, 0, 0, 0.11);
+  -moz-box-shadow: 9px 10px 37px 1px rgba(0, 0, 0, 0.11);
+}
+
+.form-horizontal .form-group input {
+  border: 1px solid #2A93C9;
+  border-radius: 50px;
 }
 
 .form-horizontal h1 {
   margin-bottom: 35px;
 }
 
-.form-horizontal .form-group {
-  padding: 0 40px;
-  position: relative;
-}
-
-.form-horizontal .form-control {
-  background: #f0f0f0;
-  padding: 0 20px 0 45px;
-  height: 40px;
-}
-
-.form-horizontal .form-control:focus {
-  background: #e0e0e0;
-  box-shadow: none;
-  outline: 0 none;
-  border: 1px solid #2A93C9;
-}
-
-.form-horizontal .form-group i {
-  /* значки */
-  position: absolute;
-  top: 12px;
-  left: 60px;
-  font-size: 17px;
-  color: #c8c8c8;
-  transition: all 0.5s ease 0s;
-}
-
-.form-horizontal .form-control:focus + i {
-  color: #2A93C9;
-}
-
 .form-horizontal .btn {
-  font-size: 15px;
-  color: #fff;
+  font-size: 1.1rem;
   background: #2A93C9;
-  padding: 10px 25px;
-  border: none;
-  text-transform: capitalize;
+  padding: 7px 30px;
+  border-radius: 50px;
+  color: white;
 }
 
 .form-horizontal .btn:hover, .form-horizontal .btn:focus {
