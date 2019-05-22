@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Group
 
 
 # Create your models here.
@@ -14,3 +14,9 @@ class UserProfile(AbstractUser):
     def __str__(self):
         return '%s %s %s' % (self.last_name, self.first_name, self.sur_name)
 
+
+class MyGroup(Group):
+
+    class Meta:
+        verbose_name = 'Группа'
+        verbose_name_plural = 'Группы'

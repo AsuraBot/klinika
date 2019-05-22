@@ -719,6 +719,11 @@ h1 {
 }
 
 /********** BOOKNOW ********* */
+
+.calendar {
+  margin-bottom: 75px;
+}
+
 .calendar h1 {
   margin-bottom: 50px;
 }
@@ -766,6 +771,13 @@ h1 {
   background-color: #2A93C9;
 }
 
+.agreement {
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+  color: #444;
+  text-align: inherit;
+}
+
 /* AUTH */
 .form-horizontal {
   border-radius: 50px;
@@ -800,6 +812,77 @@ h1 {
 }
 
 /******* DATETIMEPICKER *******/
+
+#datetime {
+  border: 1px solid;
+  border-color: #2A93C9;
+}
+
+.xdsoft_datetimepicker .xdsoft_monthpicker {
+  display: flex;
+  justify-content: space-between;
+}
+
+.xdsoft_datetimepicker .xdsoft_monthpicker .xdsoft_month {
+  font-size: 1.3rem;
+  background-color: #F1F3F9;
+  font-weight: normal;
+  padding: 5px 0;
+}
+
+.xdsoft_datetimepicker .xdsoft_monthpicker .xdsoft_month span {
+  display: inline-block;
+  padding-right: 5px; 
+}
+
+.xdsoft_datetimepicker .xdsoft_monthpicker .xdsoft_year {
+  display: none;
+}
+
+.xdsoft_datetimepicker .xdsoft_monthpicker .xdsoft_today_button {
+  display: none;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar th {
+  font-size: 1rem;
+  color: black;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td div {
+  font-size: 1.5rem;
+  text-align: center;
+  color: black;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_other_month.xdsoft_disabled {
+  background-color: #F1F3F9;
+  opacity: 0.2;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_disabled {
+  background-color: #cf6a87;
+  opacity: 0.8;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_disabled:hover {
+  background-color: #cf6a87 !important;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td {
+  background-color: #3dc1d3;
+  opacity: 0.6;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td.xdsoft_current {
+  background-color: #3dc1d3;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar td:hover {
+  background-color: #3dc1d3 !important;
+  opacity: 0.8;
+}
 
 .xdsoft_datetimepicker.xdsoft_inline {
   width: 100% !important;

@@ -241,6 +241,16 @@ $(document).ready(function(){
     });
 
     $('.datetimebtn').click(function(){         //datetime button
+        service = $('.services').find('option:selected').text();
+        doctor = $('.orderdoctors').find('option:selected').text();
+        city = $('.ordercities').find('option:selected').text();
+        datetime = $('#datetimepicker').val().split(' ');
+        date = datetime[0];
+        time = datetime[1];
+
+        $('#suminfo').html('<div>Услуга: ' + service + '</div> <div> Врач: ' + 
+            doctor + '</div> <div> Город: ' + city + '</div> <div> Дата: ' + 
+            date + '</div> <div> Время: ' + time + '</div>')
 
         $('#enterinfo-tab').removeClass('disabled');
         $('#enterinfo-tab').tab('show');

@@ -76,41 +76,46 @@
                         <button class="btn d-none datetimebtn">Далее</button>
                     </div>
                     <div class="tab-pane fade" id="enterinfo" role="tabpanel" aria-labelledby="enterinfo-tab">
-                        <form class="needs-validation" novalidate action="{% url 'ordercreate' %}" id="enterinfoform" method="POST">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <input type="text" class="form-control" required placeholder="Ваше имя" id="client_firstname">
-                                <div class="invalid-feedback">Обязательно для заполнения</div>
+                        <div class="d-flex justify-content-between">
+                            <form class="needs-validation col-md-6" novalidate action="{% url 'ordercreate' %}" id="enterinfoform" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required placeholder="Ваше имя" id="client_firstname">
+                                    <div class="invalid-feedback">Обязательно для заполнения</div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required placeholder="Ваша фамилия" id="client_lastname">
+                                    <div class="invalid-feedback">Обязательно для заполнения</div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Ваше отчество (если есть)" id="client_surname">
+                                </div>  
+                                <div class="form-group">
+                                    <input type="date" class="form-control" required placeholder="Ваша дата рождения" id="client_dob">
+                                    <div class="invalid-feedback">Обязательно для заполнения</div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required placeholder="Ваш контактный телефон" id="client_phone">
+                                    <div class="invalid-feedback">Обязательно для заполнения</div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Ваш адрес (необязательно)" id="client_address">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Ваша электронная почта (необязательно)" id="client_mail">
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                    <label class="agreement custom-control-label" for="customControlValidation1">
+                                        <a href='http://www.consultant.ru/document/cons_doc_LAW_61801/' target="_blank">Я соглашаюсь на обработку персональных данных в соответствии с законом N 152-ФЗ</a>
+                                    </label>
+                                    <div class="invalid-feedback">Вы не приняли соглашение о передаче персональных данных</div>
+                                </div>
+                                <button type="submit" class="btn enterinfobtn">Записаться на приём</button>
+                            </form>
+                            <div id="suminfo" class="col-md-6">
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" required placeholder="Ваша фамилия" id="client_lastname">
-                                <div class="invalid-feedback">Обязательно для заполнения</div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Ваше отчество (если есть)" id="client_surname">
-                            </div>  
-                            <div class="form-group">
-                                <input type="date" class="form-control" required placeholder="Ваша дата рождения" id="client_dob">
-                                <div class="invalid-feedback">Обязательно для заполнения</div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" required placeholder="Ваш контактный телефон" id="client_phone">
-                                <div class="invalid-feedback">Обязательно для заполнения</div>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Ваш адрес (необязательно)" id="client_address">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Ваша электронная почта (необязательно)" id="client_mail">
-                            </div>
-                            <div class="custom-control custom-checkbox mb-3">
-                                <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
-                                <label class="custom-control-label" for="customControlValidation1">Соглашение о передаче персональных данных <br>
-                                    Нажимая кнопку "Записаться на прием" я подтверждаю, что в соответствии с Федеральным Законом Российской Федерации от 27 июля 2006 г. №152-ФЗ «О персональных данных» даю согласие на обработку своих ПДн, в т.ч. сбор, запись, систематизацию, накопление, хранение, уточнение (обновление, изменение), извлечение, использование, передачу, обезличивание, блокирование, удаление, уничтожение, содержащихся в регистрационной форме, владельцу портала и сотрудникам регистратуры ЛПУ, на прием в которое я произвожу запись.</label>
-                                <div class="invalid-feedback">Вы не приняли соглашение о передаче персональных данных</div>
-                            </div>
-                            <button type="submit" class="btn enterinfobtn">Записаться на приём</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </nav>

@@ -25,7 +25,7 @@ class People(models.Model):
 
 
 class Client(People):
-    discount = models.ForeignKey(Discount, on_delete=models.SET_DEFAULT, verbose_name='Скидка', related_name='clients', default=1)
+    discount = models.ForeignKey(Discount, on_delete=models.SET_DEFAULT, verbose_name='Скидка', related_name='client', default=1)
 
     class Meta:
         verbose_name = 'Клиент'
@@ -89,7 +89,7 @@ class Agent(People):
 
 
 class Operator(People):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, verbose_name='Профиль', null=True, blank=True, related_name='operators')
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, verbose_name='Профиль', null=True, blank=True, related_name='operator')
 
     class Meta:
         verbose_name = 'Оператор'
@@ -106,7 +106,7 @@ class Operator(People):
 
 
 class MainOperator(People):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, verbose_name='Профиль', null=True, blank=True, related_name='mainoperators')
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, verbose_name='Профиль', null=True, blank=True, related_name='mainoperator')
 
     class Meta:
         verbose_name = 'Старший оператор'
@@ -123,7 +123,7 @@ class MainOperator(People):
 
 
 class Director(People):
-    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, verbose_name='Профиль', null=True, blank=True, related_name='directors')
+    user = models.OneToOneField(UserProfile, on_delete=models.CASCADE, verbose_name='Профиль', null=True, blank=True, related_name='director')
 
     class Meta:
         verbose_name = 'Руководство'

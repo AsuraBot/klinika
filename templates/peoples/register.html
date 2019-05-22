@@ -1,32 +1,29 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    Авторизация
+    Регистрация
 {% endblock title %}
 
 {% block content %}
 <div class="container">
-    <h1>Авторизация</h1>
+    <h1>Регистрация</h1>
     <form class="form-horizontal" method="POST">
         {% csrf_token %}
         {% for field in form %}
         <div class="form-group">
             {{ field }}
+            {% for error in field.errors %}
+            <div class="alert alert-danger mt-2" role="alert">{{ error }}</div>
+            {% endfor %}
         </div>
         {% endfor %}
         <div class="form-group text-center">
-            <button type="submit" class="btn btn-default">Войти</button>
+            <button type="submit" class="btn btn-default">Зарегистрироваться</button>
         </div>
         <div class="form-group">
             {% for error in form.non_field_errors %}
             <div class="alert alert-danger" role="alert">{{ error }}</div>
             {% endfor %}
-        </div>
-        <div class="form-group">
-            <a href='#'>Забыли пароль?</a>
-        </div>
-        <div class="form-group">
-            <a href="{% url 'register' %}">Зарегистрироваться</a>
         </div>
     </form>
 </div>
