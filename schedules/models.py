@@ -1,5 +1,5 @@
 from django.db import models
-from peoples.models import Doctor
+from users.models import UserProfile
 
 # Create your models here.
 
@@ -17,7 +17,7 @@ class WorkTime(models.Model):
 
 
 class WorkDate(models.Model):
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, verbose_name='Врач', related_name='workdates')
+    doctor = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name='Врач', related_name='workdates')
     date = models.DateField(verbose_name='Дата приёма')
     worktimes = models.ManyToManyField(WorkTime, verbose_name='Рабочие часы', related_name='workdates')
     workcity = models.ForeignKey('WorkCity', on_delete=models.CASCADE, verbose_name='Город приёма', related_name='workdates')

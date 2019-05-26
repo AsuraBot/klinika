@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from datetime import datetime
 from services.models import ServiceMain, Service
-from peoples.models import Doctor
+from users.models import UserProfile, MyGroup
 from schedules.models import WorkCity, WorkDate
 from orders.models import ServiceInOrder, AnalysisInOrder, Order
 
@@ -11,13 +11,11 @@ from orders.models import ServiceInOrder, AnalysisInOrder, Order
 
 def booknow(request):
     mainservices = ServiceMain.objects.all()
-    # doctors = Doctor.objects.all()
-
+    
     service_id = request.GET.get('service_id', '-1')
 
     context = {
         'mainservices' : mainservices,
-        # 'doctors' : doctors,
         'service_id' : int(service_id),
     }
 
@@ -25,7 +23,8 @@ def booknow(request):
 
 
 def doctorbooknow(request):
-    doctors = Doctor.objects.all()
+    groups = MyGroup.objects.filter(name__icontains='Врач')
+    doctors = UserProfile.objects.filter(groups__in=groups)
 
     doctor_id = request.GET.get('doctor_id', '-1')
 
@@ -41,7 +40,8 @@ def doctorfilter(request):
     service_id = int(request.POST.get('service_id'))
 
     service = Service.objects.get(id=service_id)
-    doctors = Doctor.objects.filter(services__in=[service])
+    groups = MyGroup.objects.filter(name__icontains='Врач')
+    doctors = UserProfile.objects.filter(groups__in=groups).filter(services__in=[service])
 
     workdates = []
 
@@ -64,11 +64,12 @@ def doctorfilter(request):
     doctors = set(doctors)
 
     doctors_id = [doctor.id for doctor in doctors]
-    doctors_name = [doctor.name for doctor in doctors]
+    doctors_name = [doctor.last_name + ' ' + doctor.first_name + ' ' + doctor.sur_name for doctor in doctors]
 
     context = {
         'doctors_id' : doctors_id,
         'doctors_name' : doctors_name,
+        'service_price' : service.price,
     }
 
     return JsonResponse(context)
@@ -77,7 +78,7 @@ def doctorfilter(request):
 def cityfilter(request):
     doctor_id = int(request.POST.get('doctor_id'))
 
-    doctor = Doctor.objects.get(id=doctor_id)
+    doctor = UserProfile.objects.get(id=doctor_id)
     doctorwork = WorkDate.objects.filter(doctor__in=[doctor])
 
     cities_name = []
@@ -110,7 +111,7 @@ def datetimefilter(request):
     doctor_id = int(request.POST.get('doctor_id'))
     city_id = int(request.POST.get('city_id'))
 
-    doctor = Doctor.objects.get(id=doctor_id)
+    doctor = UserProfile.objects.get(id=doctor_id)
     city = WorkCity.objects.get(id=city_id)
     workdates = WorkDate.objects.filter(doctor=doctor, workcity=city)
     
@@ -151,7 +152,7 @@ def ordercreate(request):
     client_mail = request.POST.get('client_mail')
 
     service = Service.objects.get(id=service_id)
-    doctor = Doctor.objects.get(id=doctor_id)
+    doctor = UserProfile.objects.get(id=doctor_id)
     city = WorkCity.objects.get(id=city_id)
 
     total_price = service.price
@@ -184,7 +185,7 @@ def ordercreate(request):
 def servicefilter(request):
     doctor_id = request.POST.get('doctor_id')
 
-    doctor = Doctor.objects.get(id=int(doctor_id))
+    doctor = UserProfile.objects.get(id=int(doctor_id))
     services = Service.objects.filter(doctors__in=[doctor], is_active=True)
 
     services_id = [service.id for service in services]

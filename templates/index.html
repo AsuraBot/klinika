@@ -112,7 +112,7 @@
                     <img src="{{ doctor.image.url|resize:'380x410,C' }}">
                     <div>
                         <div>
-                            <h4>{{ doctor.name }}</h4>
+                            <h4>{{ doctor.last_name }} {{ doctor.first_name }} {{ doctor.sur_name }}</h4>
                             <p>
                             {% for doctormain in doctor.doctor_main.all %}
                                 <span>{{ doctormain.name }}</span>

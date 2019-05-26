@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator
 from django.urls import reverse
-from peoples.models import Doctor
+from users.models import UserProfile
 
 # Create your models here.
 
@@ -31,14 +31,14 @@ class ServiceMain(models.Model):
 
 class Service(models.Model):
     service_main = models.ForeignKey(ServiceMain,on_delete=models.CASCADE,verbose_name='Тип услуги',related_name='services') 
-    name = models.CharField(max_length=250, verbose_name='Название услуги')
+    name = models.CharField(max_length=250,verbose_name='Название услуги')
     price = models.PositiveIntegerField(verbose_name='Цена услуги')
-    doctors = models.ManyToManyField(Doctor, verbose_name='Врачи', related_name='services', blank=True)
+    doctors = models.ManyToManyField(UserProfile, verbose_name='Врачи',related_name='services', blank=True)
     ref_doc = models.PositiveSmallIntegerField(verbose_name='Процент специалиста',default=0,validators=[MaxValueValidator(100)])
     ref_napr = models.PositiveSmallIntegerField(verbose_name='Процент направившего',default=0,validators=[MaxValueValidator(100)])
     ref_agent = models.PositiveSmallIntegerField(verbose_name='Процент агента',default=0,validators=[MaxValueValidator(100)])
     counter = models.PositiveIntegerField(verbose_name='Популярность', default=0)
-    is_active = models.BooleanField(verbose_name='Активна', default=True, help_text='Предоставляется ли услуга')
+    is_active = models.BooleanField(verbose_name='Активна',default=True,help_text='Предоставляется ли услуга')
 
     class Meta:
         verbose_name = 'Услуга'

@@ -37,9 +37,9 @@
                                 <optgroup label="{{ mainservice.name }}">
                                     {% for service in mainservice.services.all %}
                                         {% if service.id == service_id %}
-                                        <option selected value="{{ service.id }}">{{ service.name }}</option>
+                                        <option selected value="{{ service.id }}">{{ service.name }} ({{ service.price }} руб.)</option>
                                         {% else %}
-                                        <option value="{{ service.id }}">{{ service.name }}</option>
+                                        <option value="{{ service.id }}">{{ service.name }} ({{ service.price }} руб.)</option>
                                         {% endif %}
                                     {% endfor %}
                                 </optgroup>

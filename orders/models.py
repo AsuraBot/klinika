@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import MaxValueValidator
 from services.models import Service
 from analysis.models import Analysis
-from peoples.models import Doctor
+from users.models import UserProfile
 
 # Create your models here.
 
@@ -10,7 +10,7 @@ from peoples.models import Doctor
 class ServiceInOrder(models.Model):
     order = models.ForeignKey('Order', on_delete=models.CASCADE, related_name='services_order', verbose_name='Заказ')
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='services_order', verbose_name='Услуга')
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='services_order', verbose_name='Врач')
+    doctor = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='services_order', verbose_name='Врач')
     city = models.CharField(max_length=250, verbose_name='Город')
     date = models.DateField(verbose_name='Дата')
     time = models.TimeField(verbose_name='Время')
@@ -27,7 +27,7 @@ class ServiceInOrder(models.Model):
 class AnalysisInOrder(models.Model):
     order = models.ForeignKey('Order', on_delete=models.CASCADE, related_name='analysis_order', verbose_name='Заказ')
     analysis = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='analysis_order', verbose_name='Анализ')
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='analysis_order', verbose_name='Врач')
+    doctor = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='analysis_order', verbose_name='Врач')
     city = models.CharField(max_length=250, verbose_name='Город')
     date = models.DateField(verbose_name='Дата')
     time = models.TimeField(verbose_name='Время')
