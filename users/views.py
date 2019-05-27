@@ -61,6 +61,12 @@ class MyProfileView(View):
     def get(self, request):
         user = request.user
 
+        if user.groups.filter(name='Клиент').exists():
+            context = {
+
+            }
+            return render(request, 'peoples/client_profile.html', context)
+
         if user.groups.filter(name='Оператор').exists():
             context = {
 
