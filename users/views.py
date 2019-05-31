@@ -91,7 +91,7 @@ class MyProfileView(View):
             }
             return render(request, 'peoples/outside_doctor_profile.html', context)
 
-        if user.groups.filter(name='Доктор').exists():    
+        if user.groups.filter(name='Врач').exists():    
             context = {
 
             }

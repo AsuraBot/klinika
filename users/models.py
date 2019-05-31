@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, Group
 from django.core.validators import MaxValueValidator
+# from django.db.models.signals import post_save
+# from django.dispatch import receiver
 from tinymce import HTMLField
 
 
@@ -28,6 +30,13 @@ class DoctorMain(models.Model):
         return '%s' % self.name
 
 
+class MyGroup(Group):
+
+    class Meta:
+        verbose_name = 'Группа'
+        verbose_name_plural = 'Группы'
+
+
 class UserProfile(AbstractUser):
     sur_name = models.CharField(max_length=50, verbose_name='Отчество', blank=True, null=True)
     adress = models.CharField(max_length=250, verbose_name='Адрес', blank=True, null=True)
@@ -53,9 +62,19 @@ class UserProfile(AbstractUser):
     def __str__(self):
         return '%s %s %s' % (self.last_name, self.first_name, self.sur_name)
 
+    # def save(self, *args, **kwargs):
+    #     if len(self.doctor_main.all()):
+    #         print (len(self.doctor_main.all()))
+    #         group = MyGroup.objects.get(name='Врач')
+    #         if not group in self.groups.filter(name='Врач'):
+    #             group.user_set.add(self)
 
-class MyGroup(Group):
+    #     super(UserProfile, self).save(*args, **kwargs)
+    
 
-    class Meta:
-        verbose_name = 'Группа'
-        verbose_name_plural = 'Группы'
+# @receiver(post_save, sender=UserProfile)
+# def update_groups(sender, instance, **kwargs):
+#     if len(instance.doctor_main.all()):
+#         group = MyGroup.objects.get(name='Врач')
+#         if group not in instance.groups.filter(name='Врач'):
+#         group.user_set.add(instance)

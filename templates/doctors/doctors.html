@@ -20,16 +20,20 @@
                 </div>              
                 <div id="collapse-{{ doctormain.id }}" class="collapse" aria-labelledby="heading-{{ doctormain.id }}" data-parent="#accordion"> 
                     <div class="card-body d-flex flex-row flex-wrap align-items-end">
-                        {% for doctor in doctormain.doctors.all %}
+                        {% for doctor in doctormain.users.all %}
                             <div class="col-md-3">
                                 <div class="card">
-                                    <a href='{{ doctor.get_absolute_url }}'><img class="card-img-top" src="{{doctor.image.url|resize:'300x400,C'}}"></a>
+                                    <a href='{{ doctor.get_absolute_url }}'>
+                                    {% if doctor.image %}
+                                        <img class="card-img-top" src="{{doctor.image.url|resize:'300x400,C'}}">
+                                    {% endif %}
+                                    </a>
                                     <div class="card-body">
                                         <div class="text-center">
-                                            <a href='{{ doctor.get_absolute_url }}' class="card-link">
-                                                {{doctor.user.last_name}}<br>
-                                                {{doctor.user.first_name}}<br>
-                                                {{doctor.user.sur_name}}
+                                            <a href="{% url 'doctors_detail' doctor.id %}" class="card-link">
+                                                {{doctor.last_name}}<br>
+                                                {{doctor.first_name}}<br>
+                                                {{doctor.sur_name}}
                                             </a>
                                         </div>
                                     </div>
