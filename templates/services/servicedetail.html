@@ -7,8 +7,12 @@
 {% block content %}
 <div class="container">
     <h1>{{service.name}}</h1>
-    <form action="{% url 'booknow' %}">
-        <button type="submit" class="btn servicedetailorder" name="service_id" value="{{ service.id }}">Записаться на приём</button>
-    </form>
+    {% if service.is_active %}
+        <form action="{% url 'booknow' %}">
+            <button type="submit" class="btn servicedetailorder" name="service_id" value="{{ service.id }}">Записаться на приём</button>
+        </form>
+    {% else %}
+        <button class="btn btn-secondary" disabled>Запись недоступна</button>
+    {% endif %}
 </div>
 {% endblock content %}

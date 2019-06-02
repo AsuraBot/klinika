@@ -155,6 +155,8 @@ def ordercreate(request):
     doctor = UserProfile.objects.get(id=doctor_id)
     city = WorkCity.objects.get(id=city_id)
 
+    print(service_id, doctor_id, city_id, date, time, service, doctor, city)
+
     total_price = service.price
 
     order = Order.objects.create(

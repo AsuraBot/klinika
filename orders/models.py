@@ -3,6 +3,7 @@ from django.core.validators import MaxValueValidator
 from services.models import Service
 from analysis.models import Analysis
 from users.models import UserProfile
+from schedules.models import WorkTime, WorkDate
 
 # Create your models here.
 
@@ -57,3 +58,14 @@ class Order(models.Model):
 
     def __str__(self):
         return '%s %s' % (self.client_name, self.client_dob)
+
+    def save(self, *args, **kwargs):
+        if self.status:
+            for item in self.services_order.all():
+                doctor = item.doctor
+                times = WorkTime.objects.filter(time=item.time)
+                date = WorkDate.objects.get(doctor=doctor, date=item.date)
+                for i in times:
+                    date.worktimes.remove(i)
+                date.save()
+        super(Order, self).save(*args, **kwargs)

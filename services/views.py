@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from dal import autocomplete
 from services.models import Service, ServiceMain
 
@@ -14,7 +14,7 @@ def services(request):
 
 
 def service_detail(request, service_id):
-    service = Service.objects.get(id=int(service_id))
+    service = get_object_or_404(Service, id=int(service_id))
 
     context = {
         'service': service,

@@ -9,7 +9,10 @@ class WorkDateAdmin(admin.ModelAdmin):
 
     def get_times(self, obj):
         worktimes = [worktime.time.strftime('%H:%M') for worktime in obj.worktimes.all()]
-        return "%s - %s" % (worktimes[0], worktimes[-1])
+        if len(worktimes):
+            return "; ".join(worktimes)
+        else:
+            return " "
 
 
 admin.site.register (WorkTime)

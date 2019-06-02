@@ -1,9 +1,10 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views import View
 from dal import autocomplete
 from users.models import UserProfile, DoctorMain, MyGroup
 from users.forms import MyAuthenticationForm, MyUserCreationForm
+from schedules.models import WorkDate
 
 # Create your views here.
 
@@ -17,10 +18,12 @@ def doctors(request):
 
 
 def doctors_detail(request, doctors_id):
-    doctor = UserProfile.objects.get(id=int(doctors_id))
+    doctor = get_object_or_404(UserProfile, id=int(doctors_id))
+    workdates = WorkDate.objects.filter(doctor=doctor)
 
     context = {
         'doctor': doctor,
+        'workdates': workdates,
     }
     return render(request, 'doctors/doctorsdetail.html', context)
 
