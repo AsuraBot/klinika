@@ -5,12 +5,13 @@
 {% endblock title %}
 
 {% block content %}
-<div class="container vacancy">
+<div class="container review">
     <h1>Отзывы</h1>
     {% for review in allreview %}
         {% if review.is_active %}
-            <div class="vacancyinfo">
+            <div class="reviewtext">
                 <h3>{{review.text}}</h3>
+                <h3>{{review.name.first_name}}</h3>
                 <hr>
             </div>
         {% endif %}    
