@@ -40,11 +40,11 @@ INSTALLED_APPS = [
     'analysis',
     'orders',
     'users',
-    # 'peoples',
     'schedules',
     'vacancys',
     'staticpages',
     'news',
+    'reviews',
     # 'reports',
 ]
 

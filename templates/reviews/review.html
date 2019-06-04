@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Отзывы
+{% endblock title %}
+
+{% block content %}
+<div class="container vacancy">
+    <h1>Отзывы</h1>
+    {% for review in allreview %}
+        {% if review.is_active %}
+            <div class="vacancyinfo">
+                <h3>{{review.text}}</h3>
+                <hr>
+            </div>
+        {% endif %}    
+    {% endfor %}
+</div>
+{% endblock content %}
