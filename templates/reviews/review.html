@@ -11,7 +11,10 @@
         {% if review.is_active %}
             <div class="reviewtext">
                 <h3>{{review.text}}</h3>
-                <h3>{{review.name.first_name}}</h3>
+                <p>{{review.name.first_name}}</p>
+                {% if review.answer %}
+                    <span>{{review.answer}}</span>
+                {% endif %}
                 <hr>
             </div>
         {% endif %}    

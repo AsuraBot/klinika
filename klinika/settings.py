@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'staticpages',
     'news',
     'reviews',
+    'cities',
     # 'reports',
 ]
 

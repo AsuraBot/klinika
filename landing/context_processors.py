@@ -1,9 +1,9 @@
 from staticpages.models import About
-from schedules.models import WorkCity
+from cities.models import UserCity
 
 def gettingabouts(request):
     abouts = About.objects.all()
-    cities = WorkCity.objects.all()
+    cities = UserCity.objects.all()
 
     context = {
         'abouts': abouts,

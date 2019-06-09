@@ -13,15 +13,30 @@
         <p>{{ doctor.information|safe }}</p>
     </div>
     <div class="doctorschedule">
-        {% for workdate in workdates %}
-            <div>
-                {{ workdate.workcity }}
-                {{ workdate.date }}
-                {% for worktime in workdate.worktimes.all %}
-                    {{ worktime.time }}
-                {% endfor %}
-            </div>
-        {% endfor %}
+        <form id="doctorschedulebooknow" action="{% url 'operatorbooknow' %}" method="POST" data-doctorid="{{doctor.id}}">
+            {% csrf_token %}
+            {% for city in cities %}
+                <div class="d-flex justify-content-between">
+                    <div>
+                        {{city.city}}
+                    </div>
+                    <div>
+                        {% for workdate in city.workdates.all %}
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <button name="date" value="{{ workdate.date }}">{{workdate.date|date:"d E"}}</button>
+                                </div>
+                                <div>
+                                    {% for worktime in workdate.worktimes.all %}
+                                        <button class="worktime" type="submit" name="timeid{{worktime.id}}" value="{{ worktime.id }}">{{ worktime.time }}</button>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </form>
     </div>        
     <div id="accordion" class='doctors'>
         <div class="card">
@@ -32,7 +47,7 @@
                     </button>
                 </h5>
             </div>   
-            <div id="collapse-{{ doctor.id }}" class="collapse" aria-labelledby="heading-{{ doctor.id }}" data-parent="#accordion">
+            <div id="collapse-{{ doctor.id }}" class="collapse show" aria-labelledby="heading-{{ doctor.id }}" data-parent="#accordion">
                 <div class="list-group">
                     {% for service in doctor.services.all %}
                         <a href="{{ service.get_absolute_url }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">

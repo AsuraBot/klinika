@@ -4,7 +4,8 @@ from users.models import UserProfile
 
 class Review(models.Model):
     name = models.ForeignKey(UserProfile, on_delete=models.CASCADE, verbose_name='Имя', related_name='reviews')
-    text = models.CharField(max_length=250, verbose_name='Отзыв')
+    text = models.TextField(verbose_name='Отзыв')
+    answer = models.TextField(verbose_name='Ответ', blank=True, null=True)
     date = models.DateField(verbose_name='Дата публикации', auto_now_add=True)
     is_active = models.BooleanField(verbose_name='Опубликовать', default=False)
 

@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
+from django.views import View
 from datetime import datetime
 from services.models import ServiceMain, Service
 from users.models import UserProfile, MyGroup
-from schedules.models import WorkCity, WorkDate
+from schedules.models import WorkDate, WorkTime
 from orders.models import ServiceInOrder, AnalysisInOrder, Order
+from cities.models import UserCity
 
 # Create your views here.
 
@@ -112,7 +114,7 @@ def datetimefilter(request):
     city_id = int(request.POST.get('city_id'))
 
     doctor = UserProfile.objects.get(id=doctor_id)
-    city = WorkCity.objects.get(id=city_id)
+    city = UserCity.objects.get(id=city_id)
     workdates = WorkDate.objects.filter(doctor=doctor, workcity=city)
     
     schedule = {}
@@ -153,9 +155,7 @@ def ordercreate(request):
 
     service = Service.objects.get(id=service_id)
     doctor = UserProfile.objects.get(id=doctor_id)
-    city = WorkCity.objects.get(id=city_id)
-
-    print(service_id, doctor_id, city_id, date, time, service, doctor, city)
+    city = UserCity.objects.get(id=city_id)
 
     total_price = service.price
 
@@ -192,10 +192,12 @@ def servicefilter(request):
 
     services_id = [service.id for service in services]
     services_name = [service.name for service in services]
+    services_price = [service.price for service in services]
 
     context = {
         'services_id' : services_id,
         'services_name' : services_name,
+        'services_price' : services_price,
     }
 
     return JsonResponse(context)

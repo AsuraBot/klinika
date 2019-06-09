@@ -4,6 +4,7 @@ from django.core.validators import MaxValueValidator
 # from django.db.models.signals import post_save
 # from django.dispatch import receiver
 from tinymce import HTMLField
+from cities.models import UserCity
 
 
 class Discount(models.Model):
@@ -42,6 +43,7 @@ class UserProfile(AbstractUser):
     adress = models.CharField(max_length=250, verbose_name='Адрес', blank=True, null=True)
     dob = models.DateField(verbose_name='Дата рождения', blank=True, null=True)
     phone = models.CharField(max_length=30, verbose_name='Телефон', blank=True, null=True)
+    city = models.ForeignKey(UserCity, on_delete=models.SET_NULL, related_name='users', verbose_name='Город', blank=True, null=True)
 
     discount = models.ForeignKey(Discount, on_delete=models.SET_DEFAULT, verbose_name='Скидка', related_name='users', default=0)
 

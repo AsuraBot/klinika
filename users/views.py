@@ -5,6 +5,7 @@ from dal import autocomplete
 from users.models import UserProfile, DoctorMain, MyGroup
 from users.forms import MyAuthenticationForm, MyUserCreationForm
 from schedules.models import WorkDate
+from cities.models import UserCity
 
 # Create your views here.
 
@@ -20,10 +21,12 @@ def doctors(request):
 def doctors_detail(request, doctors_id):
     doctor = get_object_or_404(UserProfile, id=int(doctors_id))
     workdates = WorkDate.objects.filter(doctor=doctor)
+    cities = UserCity.objects.filter(workdates__in=workdates).distinct()
 
     context = {
         'doctor': doctor,
         'workdates': workdates,
+        'cities': cities,
     }
     return render(request, 'doctors/doctorsdetail.html', context)
 

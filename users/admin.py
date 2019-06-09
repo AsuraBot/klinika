@@ -10,7 +10,7 @@ from users.models import UserProfile, MyGroup, Discount, DoctorMain
 class UserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
-        (_('Personal info'), {'fields': ('first_name', 'last_name', 'sur_name', 'adress', 'phone', 'email', 'dob')}),
+        (_('Personal info'), {'fields': ('first_name', 'last_name', 'sur_name', 'adress', 'phone', 'email', 'dob', 'city')}),
         ('Для врачей', {'classes': ('collapse', ), 'fields': ('doctor_main', 'ref_doc', 'oklad', 'information', 'image' )}),
         ('Скидка', {'classes': ('collapse', ), 'fields': ('discount',)}),
         ('Агентство', {'classes': ('collapse', ), 'fields': ('agency',)}),

@@ -145,7 +145,7 @@ $(document).ready(function(){
                 servicechoice.find('option').remove();
                 servicechoice.append('<option value="-1"></option>');
                 for(i=0; i < data.services_id.length; i++){
-                    servicechoice.append('<option value="'+ data.services_id[i] + '">' + data.services_name[i] + '</option>');
+                    servicechoice.append('<option value="'+ data.services_id[i] + '">' + data.services_name[i] + ' (' + data.services_price[i] + ' руб.)</option>');
                 }              
             }
         });
@@ -300,4 +300,35 @@ $(document).ready(function(){
         //2. Получить элемент, к которому необходимо добавить маску
         $("#client_phone").mask("8(999) 999-9999");
       });
+
+    $('#doctorschedulebooknow .worktime').click(function(e){         //service button
+        e.preventDefault();
+
+        csrf_token = $('#doctorschedulebooknow [name="csrfmiddlewaretoken"]').val();
+        doctor_id = $('#doctorschedulebooknow').data('doctorid');
+        worktime = $(this).val();
+        workdate = $(this).parent().siblings().children().val();
+
+        data = {
+            'csrfmiddlewaretoken' : csrf_token,
+            'doctor_id' : doctor_id,
+            'worktime' : worktime,
+            'workdate' : workdate,
+        }
+
+        $.ajax ({
+            type: 'POST',
+            url: $('#doctorschedulebooknow').attr('action'),
+            data: data,
+            // success: function(data){
+                // doctorchoice = $('.orderdoctors');
+                // doctorchoice.find('option').remove();
+                // doctorchoice.append('<option value="-1"></option>');
+                // for(i=0; i < data.doctors_id.length; i++){
+                //     doctorchoice.append('<option value="'+ data.doctors_id[i] + '">' + data.doctors_name[i] + '</option>');
+                // }              
+            // }
+        });
+    });
 });
+

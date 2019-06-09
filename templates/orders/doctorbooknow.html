@@ -44,9 +44,9 @@
                                 <option value="-1"></option>
                                 {% for doctor in doctors %}
                                     {% if doctor.id == doctor_id %}
-                                    <option selected value="{{ doctor.id }}">{{ doctor.name }}</option>
+                                    <option selected value="{{ doctor.id }}">{{ doctor.last_name }} {{ doctor.first_name }} {{ doctor.sur_name }}</option>
                                     {% else %}
-                                    <option value="{{ doctor.id }}">{{ doctor.name }}</option>
+                                    <option value="{{ doctor.id }}">{{ doctor.last_name }} {{ doctor.first_name }} {{ doctor.sur_name }}</option>
                                     {% endif %}
                                 {% endfor %}
                             </select>
