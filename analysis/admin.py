@@ -1,5 +1,5 @@
 from django.contrib import admin
-from analysis.models import Analysis, AnalysisType, Hospital
+from analysis.models import Analysis, AnalysisType, Hospital, AnalysisColor
 
 # Register your models here.
 
@@ -22,7 +22,8 @@ class AnalysisTypeAdmin(admin.ModelAdmin):
 #     list_display = ['name', 'analysis', 'is_active']
 #     list_editable = ['is_active']
 
-    
+
+admin.site.register(AnalysisColor)
 admin.site.register(Analysis, AnalysisAdmin)
 admin.site.register(AnalysisType,AnalysisTypeAdmin)
 # admin.site.register(Hospital,HospitalAdmin)

@@ -16,11 +16,23 @@ class AnalysisType(models.Model):
         return '%s' % self.name
 
 
+class AnalysisColor(models.Model):
+    color = models.CharField(max_length=250, verbose_name='Цвет пробирки')
+
+    class Meta:
+        verbose_name = 'Цвет пробирки'
+        verbose_name_plural = 'Цвета пробирок'
+
+    def __str__(self):
+        return '%s' % self.color
+
+
 class Analysis(models.Model):
-    type_of_analysis = models.ForeignKey(AnalysisType, on_delete=models.CASCADE,related_name='analyzes',verbose_name='Тип анализа')
+    type_of_analysis = models.ForeignKey(AnalysisType, on_delete=models.CASCADE, related_name='analyzes',verbose_name='Тип анализа')
     name = models.CharField(max_length=250, verbose_name='Название анализа')
     is_active = models.BooleanField(verbose_name='Активен', default=True, help_text='Проводится ли анализ')
-    price = models.PositiveIntegerField(verbose_name='Цена анализа') 
+    tubecolor = models.ForeignKey(AnalysisColor, on_delete=models.SET_NULL, related_name='analyzes', verbose_name='Цвет пробирки', null=True, blank=True)
+    price = models.PositiveIntegerField(verbose_name='Цена анализа')
 
     class Meta:
         verbose_name = 'Анализ'
