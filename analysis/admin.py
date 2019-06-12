@@ -18,12 +18,12 @@ class AnalysisTypeAdmin(admin.ModelAdmin):
     list_editable = ['is_active']
 
 
-# class HospitalAdmin(admin.ModelAdmin):
-#     list_display = ['name', 'analysis', 'is_active']
-#     list_editable = ['is_active']
+class HospitalAdmin(admin.ModelAdmin):
+    list_display = ['name', 'analysis', 'is_active']
+    list_editable = ['is_active']
 
 
 admin.site.register(AnalysisColor)
 admin.site.register(Analysis, AnalysisAdmin)
-admin.site.register(AnalysisType,AnalysisTypeAdmin)
-# admin.site.register(Hospital,HospitalAdmin)
+admin.site.register(AnalysisType, AnalysisTypeAdmin)
+admin.site.register(Hospital, HospitalAdmin)
