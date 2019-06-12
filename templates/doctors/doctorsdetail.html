@@ -13,7 +13,7 @@
         <p>{{ doctor.information|safe }}</p>
     </div>
     <div class="doctorschedule">
-        <form id="doctorschedulebooknow" action="{% url 'operatorbooknow' %}" method="POST" data-doctorid="{{doctor.id}}">
+        <form id="doctorschedulebooknow" action="#" method="POST" data-doctorid="{{doctor.id}}">
             {% csrf_token %}
             {% for city in cities %}
                 <div class="d-flex justify-content-between">
