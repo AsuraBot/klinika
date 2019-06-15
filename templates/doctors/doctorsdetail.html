@@ -13,9 +13,10 @@
         <p>{{ doctor.information|safe }}</p>
     </div>
     <div class="doctorschedule">
-        <form id="doctorschedulebooknow" action="#" method="POST" data-doctorid="{{doctor.id}}">
+        <form id="doctorschedulebooknow" action="{% url 'doctorschedulebooknow' %}" method="POST" data-doctorid="{{doctor.id}}">
             {% csrf_token %}
             {% for city in cities %}
+                <br>
                 <div class="d-flex justify-content-between">
                     <div>
                         {{city.city}}
@@ -24,11 +25,15 @@
                         {% for workdate in city.workdates.all %}
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <button name="date" value="{{ workdate.date }}">{{workdate.date|date:"d E"}}</button>
+                                    <button name="date" disabled value="{{ workdate.date }}">{{workdate.date|date:"d E"}}</button>
                                 </div>
                                 <div>
                                     {% for worktime in workdate.worktimes.all %}
-                                        <button class="worktime" type="submit" name="timeid{{worktime.id}}" value="{{ worktime.id }}">{{ worktime.time }}</button>
+                                        {% if city.city == user.city.city %}
+                                            <button class="worktime" type="submit" name="timeid{{worktime.id}}" value="{{ worktime.id }}">{{ worktime.time }}</button>
+                                        {% else %}
+                                            <button disabled>{{ worktime.time }}</button>
+                                        {% endif %}
                                     {% endfor %}
                                 </div>
                             </div>

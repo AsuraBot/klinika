@@ -49,9 +49,20 @@ $(document).ready(function(){
     }
     });
 
-    $('.services').on('change', function(){
+    $('.doctorscheduleservices').select2({
+        placeholder: {
+            id: '-1',
+            text: 'Выберите услугу из списка или начните вводить название услуги...'
+        }
+      });
+
+    $('.doctorscheduleservices').on('change', function(){
         $(this).siblings('.btn').removeClass('d-none')
     }); 
+
+    $('.services').on('change', function(){
+        $(this).siblings('.btn').removeClass('d-none')
+    });
 
     $('.orderdoctors').on('change', function(){
         $(this).siblings('.btn').removeClass('d-none')
@@ -301,13 +312,15 @@ $(document).ready(function(){
         $("#client_phone").mask("8(999) 999-9999");
       });
 
-    $('#doctorschedulebooknow .worktime').click(function(e){         //service button
+    $('#doctorschedulebooknow .worktime').click(function(e){         //doctor schedule booknow button
         e.preventDefault();
 
         csrf_token = $('#doctorschedulebooknow [name="csrfmiddlewaretoken"]').val();
         doctor_id = $('#doctorschedulebooknow').data('doctorid');
         worktime = $(this).val();
         workdate = $(this).parent().siblings().children().val();
+
+        console.log(doctor_id, worktime, workdate)
 
         data = {
             'csrfmiddlewaretoken' : csrf_token,
@@ -320,15 +333,9 @@ $(document).ready(function(){
             type: 'POST',
             url: $('#doctorschedulebooknow').attr('action'),
             data: data,
-            // success: function(data){
-                // doctorchoice = $('.orderdoctors');
-                // doctorchoice.find('option').remove();
-                // doctorchoice.append('<option value="-1"></option>');
-                // for(i=0; i < data.doctors_id.length; i++){
-                //     doctorchoice.append('<option value="'+ data.doctors_id[i] + '">' + data.doctors_name[i] + '</option>');
-                // }              
-            // }
+            success: function(data){
+                window.location.href = 'http://' + data.domain + '/orders/scheduleorder/?doctor_id=' + data.doctor_id + '&worktime=' + data.worktime + '&workdate=' + data.workdate;
+            }
         });
     });
 });
-

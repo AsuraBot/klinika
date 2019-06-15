@@ -9,4 +9,6 @@ urlpatterns = [
     path('cityfilter/', views.cityfilter, name='cityfilter'),
     path('datetimefilter/', views.datetimefilter, name='datetimefilter'),
     path('ordercreate/', views.ordercreate, name='ordercreate'),
+    path('doctorschedulebooknow/', views.doctorschedulebooknow, name='doctorschedulebooknow'),
+    path('scheduleorder/', views.ScheduleOrderView.as_view(), name='scheduleorder'),
 ]

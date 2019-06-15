@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Записаться на приём
+{% endblock title %}
+
+{% block content %}
+<div class="calendar">
+    <div class="container">
+        <h1>Записаться на приём</h1>
+            <nav class="d-none d-sm-none d-md-block">  <!-- Большой экран -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist"> <!-- Кнопки навигации -->
+                    <li class="nav-item">
+                        <a class="nav-link active" id="doctorscheduleservice-tab" data-toggle="tab" href="#service" role="tab" aria-controls="service" aria-selected="true">Выберите услугу</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" id="doctorscheduleenterinfo-tab" data-toggle="tab" href="#enterinfo" role="tab" aria-controls="enterinfo" aria-selected="false">Введите свои данные</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="doctorscheduleservice" role="tabpanel" aria-labelledby="service-tab">
+                        <form action="{% url 'doctorfilter' %}" method="post" id="doctorscheduleorderform">
+                            {% csrf_token %}
+                            <select class="doctorscheduleservices form-control" style="width:100%" name="services">
+                                <option value="-1"></option>
+                                {% for service in services %}
+                                    <option value="{{ service.id }}">{{ service.name }} ({{ service.price }} руб.)</option>
+                                {% endfor %}
+                            </select>
+                            <button type="submit" class="btn doctorscheduleservicebtn d-none">Далее</button>
+                            <script>
+                                if ($('.doctorscheduleservices').val() != -1){
+                                    $('.doctorscheduleservicebtn').removeClass('d-none')
+                                }
+                            </script>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="doctorscheduleenterinfo" role="tabpanel" aria-labelledby="enterinfo-tab">
+                        <div class="d-flex justify-content-between">
+                            <form class="needs-validation col-md-6" novalidate action="{% url 'ordercreate' %}" id="doctorscheduleenterinfoform" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required placeholder="Ваше имя" id="client_firstname">
+                                    <div class="invalid-feedback">Обязательно для заполнения</div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required placeholder="Ваша фамилия" id="client_lastname">
+                                    <div class="invalid-feedback">Обязательно для заполнения</div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Ваше отчество (если есть)" id="client_surname">
+                                </div>  
+                                <div class="form-group">
+                                    <input type="date" class="form-control" required placeholder="Ваша дата рождения" id="client_dob">
+                                    <div class="invalid-feedback">Обязательно для заполнения</div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" required placeholder="Ваш контактный телефон" id="client_phone">
+                                    <div class="invalid-feedback">Обязательно для заполнения</div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Ваш адрес (необязательно)" id="client_address">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Ваша электронная почта (необязательно)" id="client_mail">
+                                </div>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="customControlValidation1" required>
+                                    <label class="agreement custom-control-label" for="customControlValidation1">
+                                        <a href='http://www.consultant.ru/document/cons_doc_LAW_61801/' target="_blank">Я соглашаюсь на обработку персональных данных в соответствии с законом N 152-ФЗ</a>
+                                    </label>
+                                    <div class="invalid-feedback">Вы не приняли соглашение о передаче персональных данных</div>
+                                </div>
+                                <button type="submit" class="btn enterinfobtn">Записаться на приём</button>
+                            </form>
+                            <div id="suminfo" class="col-md-6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+    </div>
+</div>
+{% endblock content %}

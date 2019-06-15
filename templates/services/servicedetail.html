@@ -7,6 +7,40 @@
 {% block content %}
 <div class="container">
     <h1>{{service.name}}</h1>
+
+    <div class="doctorschedule">
+        {% for doctor in service.doctors.all %}
+            <br>
+            {{doctor.last_name}} {{doctor.first_name}} {{doctor.sur_name}}
+            <br>
+            {{doctor.doctor_main}}
+            <form id="doctorschedulebooknow" action="#" method="POST" data-doctorid="{{doctor.id}}">
+                {% csrf_token %}
+                {% for city in cities %}
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            {{city.city}}
+                        </div>
+                        <div>
+                            {% for workdate in city.workdates.all %}
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <button name="date" value="{{ workdate.date }}">{{workdate.date|date:"d E"}}</button>
+                                    </div>
+                                    <div>
+                                        {% for worktime in workdate.worktimes.all %}
+                                            <button class="worktime" type="submit" name="timeid{{worktime.id}}" value="{{ worktime.id }}">{{ worktime.time }}</button>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </form>
+        {% endfor %}
+    </div>
+
     {% if service.is_active %}
         <form action="{% url 'booknow' %}">
             <button type="submit" class="btn servicedetailorder" name="service_id" value="{{ service.id }}">Записаться на приём</button>

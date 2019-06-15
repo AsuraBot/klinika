@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.views import View
+from django.contrib.sites.shortcuts import get_current_site
 from datetime import datetime
 from services.models import ServiceMain, Service
 from users.models import UserProfile, MyGroup
@@ -201,3 +202,41 @@ def servicefilter(request):
     }
 
     return JsonResponse(context)
+
+
+def doctorschedulebooknow(request):
+    if request.method == 'POST':
+        current_site = get_current_site(request)
+        doctor_id = request.POST.get('doctor_id')
+        worktime = request.POST.get('worktime')
+        workdate = request.POST.get('workdate')
+
+        context = {
+            'doctor_id' : doctor_id,
+            'worktime' : worktime,
+            'workdate' : workdate,
+            'domain': current_site.domain,
+        }
+
+        return JsonResponse(context)
+    else:
+        redirect('/')
+
+
+class ScheduleOrderView(View):
+    def get(self, request):
+        doctor_id = request.GET.get('doctor_id')
+        doctor = UserProfile.objects.get(id=int(doctor_id))
+        worktime = request.GET.get('worktime')
+        workdate = request.GET.get('workdate')
+
+        services = Service.objects.filter(doctors__in=[doctor], is_active=True)
+
+        context = {
+            'services' : services,
+            'doctor' : doctor,
+            'worktime' : worktime,
+            'workdate' : workdate,
+        }
+
+        return render(request, 'orders/doctorschedulebooknow.html', context)
