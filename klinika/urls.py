@@ -3,14 +3,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from filebrowser.sites import site
-from landing.views import e_handler404, e_handler500
+# from landing.views import e_handler404, e_handler500
 
 
 admin.site.site_header = 'Клиника'
 
 
-handler404 = e_handler404
-handler500 = e_handler500
+# handler404 = e_handler404
+# handler500 = e_handler500
 
 
 urlpatterns = [

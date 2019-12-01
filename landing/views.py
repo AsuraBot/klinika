@@ -20,13 +20,13 @@ def index(request):
     return render(request, 'index.html',context)
 
  
-def e_handler404(request):
-    response = render(request, 'errorpages/404.html', {})
-    response.status_code = 404
-    return response
- 
- 
-def e_handler500(request):
-    response = render(request, 'errorpages/500.html', {})
-    response.status_code = 500
-    return response
+# def e_handler404(request):
+#     response = render(request, 'errorpages/404.html', {})
+#     response.status_code = 404
+#     return response
+#
+#
+# def e_handler500(request):
+#     response = render(request, 'errorpages/500.html', {})
+#     response.status_code = 500
+#     return response

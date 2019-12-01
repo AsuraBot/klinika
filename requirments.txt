@@ -1,4 +1,4 @@
-Django==2.1.7
+piDjango==2.1.7
 django-appconf==1.0.3
 django-autocomplete-light==3.3.2
 django-filebrowser-no-grappelli==3.7.8
